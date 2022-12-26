@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Payment;
 use Illuminate\Database\Seeder;
 
 class PaymentSeeder extends Seeder
@@ -13,6 +14,9 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Payment::insert([
+            ['name' => 'Cash on delivery'],
+            ['name' => 'Paypal'],
+        ]);
     }
 }
