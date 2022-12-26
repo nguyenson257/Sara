@@ -1,6 +1,13 @@
 # Getting started
-
+## Account for developer
+Default password: 12345678
+### User 
+email: user@gmail.com
+### Admin 
+email: admin@gmail.com
 ## Installation
+
+Create 'sara' database in mysql
 
 Clone the repository
 

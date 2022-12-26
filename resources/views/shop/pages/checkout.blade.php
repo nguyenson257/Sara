@@ -1,4 +1,7 @@
 @extends('shop.layouts.base')
+@section('pageTitle')
+Checkout
+@endsection
 @section('content')
 <div class="cart-table-area section-padding-100">
     <div class="container-fluid">
