@@ -1,4 +1,7 @@
 @extends('shop.layouts.base')
+@section('pageTitle')
+Product Detail
+@endsection
 @section('content')
 <div class="single-product-area section-padding-100 clearfix">
     <div class="container-fluid">

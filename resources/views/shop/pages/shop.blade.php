@@ -1,4 +1,7 @@
 @extends('shop.layouts.base')
+@section('pageTitle')
+Shop
+@endsection
 @section('content')
 <div class="shop_sidebar_area">
 
