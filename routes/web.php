@@ -12,7 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('shop.pages.home');
+});
+Route::get('/home', function () {
+    return view('shop.pages.home');
+});
+Route::get('/shop', function () {
+    return view('shop.pages.shop');
+});
+Route::get('/product', function () {
+    return view('shop.pages.product');
+});
+Route::get('/cart', function () {
+    return view('shop.pages.cart');
+});
+Route::get('/checkout', function () {
+    return view('shop.pages.checkout');
 });
