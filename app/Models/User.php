@@ -14,7 +14,17 @@ class User extends Model
         'email',
         'password',
         'name',
-
-'date_of_bird'
+        'date_of_bird'
     ];
+    
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order');
+    }
+
 }
