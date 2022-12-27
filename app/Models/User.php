@@ -9,6 +9,14 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'role_id',
+        'email',
+        'password',
+        'name',
+        'date_of_bird'
+    ];
+    
     public function role()
     {
         return $this->belongsTo('App\Models\Role');
