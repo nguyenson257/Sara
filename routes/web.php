@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,8 @@ Route::get('/shop', function () {
     return view('shop.pages.shop');
 });
 Route::get('/product/{product}', [ProductController::class, 'show']);
-Route::get('/cart', function () {
-    return view('shop.pages.cart');
-});
+Route::get('/cart', [CartController::class, 'show'])->name('showCard');
+Route::post('/add-to-cart', [CartController::class, 'addProduct'])->name('add_to_cart');
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });

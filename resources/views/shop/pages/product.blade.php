@@ -35,9 +35,7 @@ Product Detail
                             @endforeach
                         </ol>
                         <div class="carousel-inner">
-                            
                             @foreach ($product->images as $image)
-                            
                             @endforeach
                             @foreach ($product->images as $index => $image)
                             @if ($index == 0)
@@ -80,8 +78,11 @@ Product Detail
                                 <a href="#">Write A Review</a>
                             </div>
                         </div>
-                        <!-- Avaiable -->
-                        <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                        @if ($product->amount == 0)
+                        <p class="avaibility"><i class="fa fa-circle" style="color: red"></i> Out of Stock({{$product->amount}})</p>
+                        @else
+                        <p class="avaibility"><i class="fa fa-circle"></i> In Stock({{$product->amount}})</p>
+                        @endif
                     </div>
 
                     <div class="short_overview my-5">
@@ -89,7 +90,12 @@ Product Detail
                     </div>
 
                     <!-- Add to Cart Form -->
-                    <form class="cart clearfix" method="post">
+                    <form class="cart clearfix" id="addCart" >
+                        @csrf
+                        <input type="hidden" name="id" value="{{$product->id}}">
+                        <input type="hidden" name="name" value="{{$product->name}}">
+                        <input type="hidden" name="image" value="{{$product->images[0]->name.'.jpeg'}}">
+                        <input type="hidden" name="price" value="{{$product->price}}">
                         <div class="cart-btn d-flex mb-50">
                             <p>Qty</p>
                             <div class="quantity">
@@ -98,7 +104,11 @@ Product Detail
                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                             </div>
                         </div>
-                        <button type="submit" name="addtocart" value="5" class="btn amado-btn">Add to cart</button>
+                        @if ($product->amount == 0)
+                        <button type="submit" name="addtocart" class="btn amado-btn" disabled>Add to cart</button>
+                        @else
+                        <button type="button" name="addtocart" class="btn amado-btn btn-submit">Add to cart</button>
+                        @endif
                     </form>
 
                 </div>
@@ -106,4 +116,28 @@ Product Detail
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+     $(document).ready(function() {
+        $( '.btn-submit' ).click(function(e) {
+            e.preventDefault();
+            var _token = $("input[name='_token']").val();
+            var id = $("input[name='id']").val();
+            var name = $("input[name='name']").val();
+            var image = $("input[name='image']").val();
+            var price = $("input[name='price']").val();
+            var quantity = $("input[name='quantity']").val();
+
+            $.ajax({
+                type: "POST",
+                url: "{{route('add_to_cart')}}",
+                data: {_token:_token, id:id, name:name, image:image, price:price, quantity:quantity},
+                success: function( msg ) {
+                    alert( msg.success );
+                }
+            });
+        });
+    });
+</script>
+
 @endsection
