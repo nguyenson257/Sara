@@ -15,7 +15,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.shop');
+    }
+
+    public function View($detail){
+        $model = Category::where('detail', $detail)->first();
+        $categorys= Category::orderBy('name')->get();
+       // $images = Product::where('detail', $detail)->first();
+      return view('shop.pages.category',['model'=>$model, 'category'=>$categorys]);
     }
 
     /**

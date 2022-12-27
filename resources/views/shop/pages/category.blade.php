@@ -87,13 +87,14 @@ Shop
         <div class="row">
 
             <!-- Single Product Area -->
-            <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+            @foreach ($model->products as $item)
+            <div class="col-12 col-sm-6 col-md-12 col-xl-6">               
                 <div class="single-product-wrapper">
-                    <!-- Product Image -->
+                    <!-- Product Image -->       
                     <div class="product-img">
-                        <img src="{{asset('assets/img/product-img/product1.jpg')}}" alt="">
+                        <img src="{{ asset($item->image) }}" alt="">
                         <!-- Hover Thumb -->
-                        <img class="hover-img" src="{{asset('assets/img/product-img/product2.jpg')}}" alt="">
+                        {{-- <img class="hover-img" src="{{asset('assets/img/product-img/product2.jpg')}}" alt=""> --}}
                     </div>
 
                     <!-- Product Description -->
@@ -101,9 +102,9 @@ Shop
                         <!-- Product Meta Data -->
                         <div class="product-meta-data">
                             <div class="line"></div>
-                            <p class="product-price">$180</p>
+                            <p class="product-price">{{ number_format($item->price) }} Đ</p>
                             <a href="product-details.html">
-                                <h6>Modern Chair</h6>
+                                <h6>{{ $item->name }}</h6>
                             </a>
                         </div>
                         <!-- Ratings & Cart -->
