@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('shop.pages.home');
 });
-Route::get('/login', function () {
-    return view('shop.pages.login');
-});
+Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::post('/check_login', [UserController::class, 'check_login'])->name('check_login');
+
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
 

@@ -6,10 +6,12 @@ use App\Models\User;
 use DB;
 use Session;
 use App\Models\Post;
+use Hash;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isNull;
 
 class UserController extends Controller
 {
@@ -20,7 +22,32 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('shop/pages/login');
+    }
+
+    public function check_login(Request $request)
+    {
+        // kiểm tra dữ liệu rỗng
+        if (!isset($request->email) || !isset($request->password)) {
+            Session::put('fail', 'Email or password invalid!');
+            return Redirect::to('/login');
+        }
+
+        $user = User::whereIn('email', [$request->email])->first();
+
+        if (!isset($user->email)) {
+            Session::put('fail', 'Email is incorrect!');
+            return Redirect::to('/login');
+        }
+
+        if (!(Hash::check($request->password, $user->password))) {
+            Session::put('fail', 'Password is incorrect!');
+            return Redirect::to('/login');
+        }
+
+        Session::put('user', $user);
+
+        return Redirect::to('/');
     }
 
     /**

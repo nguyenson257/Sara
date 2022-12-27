@@ -31,10 +31,16 @@
     </nav>
     <!-- Button Group -->
     <div class="amado-btn-group mt-30 mb-100">
-        <a href="#" class="btn amado-btn mb-15">Đăng nhập</a>
-        <a href="{{route('register')}}" class="btn amado-btn active">Đăng ký</a>
-        {{-- <a href="#" class="btn amado-btn mb-15">Chào User</a>
-        <a href="#" class="btn amado-btn active">Đăng xuất</a> --}}
+        <?php $user = Session::get('user'); ?>
+        @if (!$user)
+            <a href="{{route('login')}}" class="btn amado-btn mb-15">Đăng nhập</a>
+            <a href="{{route('register')}}" class="btn amado-btn active">Đăng ký</a>
+        @else
+            <a href="#" class="btn amado-btn mb-15">Chào {{ $user->name }}</a>
+            <a href="#" class="btn amado-btn active">Đăng xuất</a>
+        @endif
+
+
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
