@@ -51,7 +51,7 @@ class UserController extends Controller
         ]);
 
         //kiểm tra email tồn tại
-        $emails = DB::table('users')->select('email')->get();
+        $emails = User::select('email')->get();
         foreach($emails as $email) {
 
             if ($request->email === $email->email) {
@@ -83,13 +83,12 @@ class UserController extends Controller
 
         if($result) {
 
-            return Redirect::to('/');
+            return Redirect::to('/login');
         } else {
 
             Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
             return Redirect::to('/register');
         }
-
     }
 
 
