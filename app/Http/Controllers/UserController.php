@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use DB;
 use Session;
+use App\Models\Post;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -78,7 +79,7 @@ class UserController extends Controller
         $data['password'] = bcrypt($request->password);
         $data['name'] = $request->name;
 
-    	$result = DB::table('users')->insert($data);
+        $result = User::create($data);
 
         if($result) {
 

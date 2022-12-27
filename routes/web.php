@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('shop.pages.login');
 });
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
 
 
