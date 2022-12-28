@@ -36,7 +36,11 @@
             <a href="{{route('login')}}" class="btn amado-btn mb-15">Đăng nhập</a>
             <a href="{{route('register')}}" class="btn amado-btn active">Đăng ký</a>
         @else
-            <a href="#" class="btn amado-btn mb-15">Chào {{ $user->name }}</a>
+            <?php
+                $str = explode(' ', $user->name);
+                $last_name = $str[count($str)-1];
+            ?>
+            <a href="{{route('profile')}}" class="btn amado-btn mb-15">Chào {{ $last_name }}</a>
             <a href="{{route('logout')}}" class="btn amado-btn active">Đăng xuất</a>
         @endif
 
