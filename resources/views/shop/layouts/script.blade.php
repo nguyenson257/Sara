@@ -30,43 +30,39 @@
             });
         });
 
-        $('span#changeQty').click(function(e){
+        $('.changeQty').click(function(e){
             e.preventDefault();
             var thisClick = $(this);
+            var _token = $("input[name='_token']").val();
             var quantity = $(this).closest(".cartpage").find(".qtyinput").val();
             var product_id = $(this).closest(".cartpage").find(".product_id").val();
+
             if(quantity==0){
                 $.ajax({
-                url:'{{url("/update-cart")}}',
+                url:'{{url("/delete-cart")}}',
                 type:'DELETE',
                 method: 'get',
-                data:{product_id:product_id, _token: '{{csrf_token()}}' },
+                data:{product_id:product_id, _token:_token },
                 success:function(response){
                     thisClick.closest(".cartpage").remove();
                     $('#totalCall').load(location.href + ' .totalLoad');
-                    $('#totalQty').load(location.href + ' .totalQtyLoad');    
-                    // console.log("done");
                 },
                 error: (error) => {
                     console.log(JSON.stringify(error));
                 }
             })
             }else{
-            $.ajax({
-                url:'{{url("/update-cart")}}',
-                method: 'post',
-                data:{product_id:product_id,quantity:quantity, _token: '{{csrf_token()}}' },
-                success:function(response){
-                    // window.location.reload();   
-                    thisClick.closest(".cartpage").find('.subtotal').text(response.subtotal);
-                    $('#totalCall').load(location.href + ' .totalLoad');
-                    $('#totalQty').load(location.href + ' .totalQtyLoad');    
-                    // console.log("done");
-                },
-                error: (error) => {
-                    console.log(JSON.stringify(error));
-                }
-            })
+                $.ajax({
+                    url:'{{url("/update-cart")}}',
+                    method: 'post',
+                    data:{product_id:product_id,quantity:quantity, _token: '{{csrf_token()}}' },
+                    success:function(response){
+                        $('#totalCall').load(location.href + ' .totalLoad');
+                    },
+                    error: (error) => {
+                        console.log(JSON.stringify(error));
+                    }
+                })
             }
         })
     });

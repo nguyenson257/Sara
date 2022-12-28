@@ -56,29 +56,32 @@ class CartController extends Controller
         $product_id = $request->input('product_id');
         $quantity = $request->input('quantity');
         $subtotal = 0;
-        $cart = Session::get('cart');
-        if($cart==true){
-            foreach($cart as $session => $val){
-                if($val['product_id']==$product_id){
-                    $cart[$session]['product_qty'] = $quantity;
-                    $subtotal = $cart[$session]['product_qty'] * $cart[$session]['product_price'];
+        $carts = Session::get('cart');
+        if($carts==true){
+            foreach($carts as $index => $cart){
+                if($cart['product_id']==$product_id){
+                    $carts[$index]['product_qty'] = $quantity;
+                    $subtotal = $carts[$index]['product_qty'] * $carts[$index]['product_price'];
                 }
             }
-            Session::put('cart',$cart);
+            Session::put('cart',$carts);
             return response()->json(['subtotal'=>number_format($subtotal).' '.'vnd']);
         }
     }
     public function deleteProduct(Request $request)
     {
         $product_id = $request->input('product_id');
-        $cart = Session::get('cart');
-        if($cart==true){
-            foreach($cart as $session => $val){
-                if($val['product_id']==$product_id){
-                    unset($cart[$session]);
+        $carts = Session::get('cart');
+        if($carts == true){
+            foreach($carts as $index => $cart){
+                if($cart['product_id']==$product_id){
+                    unset($carts[$index]);
                 }
             }
-            Session::put('cart',$cart);
+            Session::put('cart',$carts);
+            return response()->json(['msg' => "Done"]);
         }
+        return response()->json(['msg' => "Fails"]);
+
     }
 }

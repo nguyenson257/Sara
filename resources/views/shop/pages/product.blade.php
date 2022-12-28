@@ -27,10 +27,10 @@ Product Detail
                         <ol class="carousel-indicators">
                             @foreach ($product->images as $index => $image)
                             @if ($index == 0)
-                            <li class="active" data-target="#product_details_slider" data-slide-to="{{$index}}" style="background-image: url({{asset('assets/product_images/'.$image->name.'.jpeg')}});">
+                            <li class="active" data-target="#product_details_slider" data-slide-to="{{$index}}" style="background-image: url({{asset('assets/product_images/'.$image->name)}});">
                             </li>
                             @else
-                            <li data-target="#product_details_slider" data-slide-to="{{$index}}" style="background-image: url({{asset('assets/product_images/'.$image->name.'.jpeg')}});">
+                            <li data-target="#product_details_slider" data-slide-to="{{$index}}" style="background-image: url({{asset('assets/product_images/'.$image->name)}});">
                             </li>
                             @endif
                             @endforeach
@@ -41,14 +41,14 @@ Product Detail
                             @foreach ($product->images as $index => $image)
                             @if ($index == 0)
                             <div class="carousel-item active">
-                                <a class="gallery_img" href="{{asset('assets/product_images/'.$image->name.'.jpeg')}}">
-                                    <img class="d-block w-100" src="{{asset('assets/product_images/'.$image->name.'.jpeg')}}">
+                                <a class="gallery_img" href="{{asset('assets/product_images/'.$image->name)}}">
+                                    <img class="d-block w-100" src="{{asset('assets/product_images/'.$image->name)}}">
                                 </a>
                             </div>
                             @else
                             <div class="carousel-item">
-                                <a class="gallery_img" href="{{asset('assets/product_images/'.$image->name.'.jpeg')}}">
-                                    <img class="d-block w-100" src="{{asset('assets/product_images/'.$image->name.'.jpeg')}}">
+                                <a class="gallery_img" href="{{asset('assets/product_images/'.$image->name)}}">
+                                    <img class="d-block w-100" src="{{asset('assets/product_images/'.$image->name)}}">
                                 </a>
                             </div>
                             @endif
@@ -95,13 +95,13 @@ Product Detail
                         @csrf
                         <input type="hidden" name="id" value="{{$product->id}}">
                         <input type="hidden" name="name" value="{{$product->name}}">
-                        <input type="hidden" name="image" value="{{$product->images[0]->name.'.jpeg'}}">
+                        <input type="hidden" name="image" value="{{$product->images[0]->name}}">
                         <input type="hidden" name="price" value="{{$product->price}}">
                         <div class="cart-btn d-flex mb-50">
                             <p>Qty</p>
                             <div class="quantity">
                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
+                                <input type="number" class="qty-text" id="qty" disabled step="1" min="1" max="300" name="quantity" value="1">
                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
                             </div>
                         </div>

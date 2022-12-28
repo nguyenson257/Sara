@@ -33,7 +33,7 @@ Route::get('/product/{product}', [ProductController::class, 'show']);
 Route::get('/cart', [CartController::class, 'show'])->name('showCard');
 Route::post('/add-to-cart', [CartController::class, 'addProduct'])->name('addCart');
 Route::post('/update-cart', [CartController::class, 'updateProduct'])->name('updateCart');
-Route::post('/delete-cart', [CartController::class, 'deleteProduct'])->name('deleteCart');
+Route::get('/delete-cart', [CartController::class, 'deleteProduct'])->name('deleteCart');
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
