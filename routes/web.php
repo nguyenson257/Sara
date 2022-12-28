@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('shop.pages.home');
 });
-Route::get('/login', function () {
-    return view('shop.pages.login');
-});
-Route::get('/register', function () {
-    return view('shop.pages.register');
-});
+Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::post('/check_login', [UserController::class, 'check_login'])->name('check_login');
+
+Route::get('/register', [UserController::class, 'create'])->name('register');
+Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
 Route::get('/home', function () {
     return view('shop.pages.home');
 });
@@ -36,4 +39,10 @@ Route::post('/update-cart', [CartController::class, 'updateProduct'])->name('upd
 Route::get('/delete-cart', [CartController::class, 'deleteProduct'])->name('deleteCart');
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
+});
+
+Route::group(['middleware' => 'check_admin'], function() {
+    Route::get('/admin', function () {
+        return view('admin');
+    });
 });
