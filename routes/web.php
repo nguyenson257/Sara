@@ -24,6 +24,10 @@ Route::post('/create_user', [UserController::class, 'store'])->name('create_user
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('/profile', [UserController::class, 'show'])->name('profile');
+Route::get('/edit_profile', [UserController::class, 'edit']);
+Route::post('/edit_profile', [UserController::class, 'update'])->name('edit_profile');
+
 Route::get('/home', function () {
     return view('shop.pages.home');
 });
