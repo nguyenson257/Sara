@@ -25,7 +25,7 @@
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="product-details.html">Product</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="{{route('showCard')}}">Cart</a></li>
             <li><a href="checkout.html">Checkout</a></li>
         </ul>
     </nav>
@@ -44,7 +44,7 @@
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="cart.html" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""> Cart <span>(0)</span></a>
+        <a href="{{route('showCard')}}" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""> Cart <span id="cartQty">(<?php if(Session::get('cart')){echo sizeof(Session::get('cart'));}else{echo 0;} ?>)</span></a>
         <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
