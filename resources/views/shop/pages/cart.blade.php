@@ -1,4 +1,5 @@
 @extends('shop.layouts.base')
+@extends('shop.layouts.script')
 @section('pageTitle')
 Cart
 @endsection
@@ -22,9 +23,15 @@ Cart
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $cartProducts = Session::get('cart') ?>
+                            <?php
+                                $cartProducts = Session::get('cart');
+                                $subTotal = 0;
+                            ?>
                             @if ( isset($cartProducts))
                                 @foreach ($cartProducts as $index => $cartProduct)
+                                <?php
+                                    $subTotal += ($cartProduct['product_price'] * $cartProduct['product_qty']);
+                                ?>
                                 <tr>
                                     <td class="cart_product_img">
                                         <a href="#"><img src="{{asset('assets/product_images/'.$cartProduct['product_image'])}}"></a>
@@ -38,9 +45,9 @@ Cart
                                     <td class="qty">
                                         <div class="qty-btn d-flex">
                                             <div class="quantity">
-                                                <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="{{$cartProduct['product_qty']}}">
-                                                <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                                <span class="qty-minus" id="changeQty" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;updateQty();"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" disabled value="{{$cartProduct['product_qty']}}">
+                                                <span class="qty-plus" id="changeQty" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
                                         </div>
                                     </td>
@@ -59,9 +66,9 @@ Cart
                 <div class="cart-summary">
                     <h5>Cart Total</h5>
                     <ul class="summary-table">
-                        <li><span>subtotal:</span> <span>$140.00</span></li>
+                        <li><span>subtotal:</span> <span id="subTotal">{{number_format($subTotal, 0, '', ',').' VND'}}</span></li>
                         <li><span>delivery:</span> <span>Free</span></li>
-                        <li><span>total:</span> <span>$140.00</span></li>
+                        <li><span>total:</span><span  id="subTotal">{{number_format($subTotal, 0, '', ',').' VND'}}</span></li>
                     </ul>
                     <div class="cart-btn mt-100">
                         <a href="cart.html" class="btn amado-btn w-100">Checkout</a>

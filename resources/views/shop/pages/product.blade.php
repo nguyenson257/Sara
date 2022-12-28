@@ -1,4 +1,5 @@
 @extends('shop.layouts.base')
+@extends('shop.layouts.script')
 @section('pageTitle')
 Product Detail
 @endsection
@@ -116,28 +117,4 @@ Product Detail
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-     $(document).ready(function() {
-        $( '.btn-submit' ).click(function(e) {
-            e.preventDefault();
-            var _token = $("input[name='_token']").val();
-            var id = $("input[name='id']").val();
-            var name = $("input[name='name']").val();
-            var image = $("input[name='image']").val();
-            var price = $("input[name='price']").val();
-            var quantity = $("input[name='quantity']").val();
-
-            $.ajax({
-                type: "POST",
-                url: "{{route('add_to_cart')}}",
-                data: {_token:_token, id:id, name:name, image:image, price:price, quantity:quantity},
-                success: function( msg ) {
-                    alert( msg.success );
-                }
-            });
-        });
-    });
-</script>
-
 @endsection
