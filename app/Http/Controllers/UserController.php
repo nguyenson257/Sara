@@ -47,11 +47,11 @@ class UserController extends Controller
 
         Session::put('user', $user);
 
-        if ($user->role_id == 1) {
-            return Redirect::to('/');
+        if ($user->role_id == 2) {
+            return Redirect::to('/admin');
         }
 
-        if ($user->role_id == 2) {
+        if ($user->role_id == 1) {
             return Redirect::to('/');
         }
     }

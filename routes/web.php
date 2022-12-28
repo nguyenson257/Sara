@@ -39,3 +39,9 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
+
+Route::group(['middleware' => 'check_admin'], function() {
+    Route::get('/admin', function () {
+        return view('admin');
+    });
+});
