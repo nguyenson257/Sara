@@ -59,3 +59,7 @@ You can now access the server at http://localhost:8000
 Run the database seeder and you're done
 
     php artisan db:seed
+
+Refresh database
+
+    php artisan migrate:refresh --seed
