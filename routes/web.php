@@ -36,4 +36,4 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
-Route::get('/shop/{detail}','App\Http\Controllers\CategoryController@view')->name('view');
+Route::get('/shop/{category_id}', [\App\Http\Controllers\CategoryController::class, 'view'])->name('category');

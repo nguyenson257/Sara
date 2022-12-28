@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -15,14 +16,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.shop');
+       //
     }
 
-    public function View($detail){
-        $model = Category::where('detail', $detail)->first();
-        $categorys= Category::orderBy('name')->get();
-       // $images = Product::where('detail', $detail)->first();
-      return view('shop.pages.category',['model'=>$model, 'category'=>$categorys]);
+    public function View($category_id){
+        $categorys = Category::all();
+        $products = Product::where('category_id', $category_id)->get();
+
+        return view('shop.pages.shop',['categorys'=>$categorys, 'products'=>$products]);
     }
 
     /**

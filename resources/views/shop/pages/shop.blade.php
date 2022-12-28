@@ -9,21 +9,16 @@ Shop
     <div class="widget catagory mb-50">
         <!-- Widget Title -->
         <h6 class="widget-title mb-30">Danh mục sản phẩm</h6>
-
         <!--  Catagories  -->
-        
+        {{-- hiển thị danh mục sản phẩm --}}
             <div class="catagories-menu">
-                @foreach ($categorys as $category)
-                {{-- {{ route ('shop.pages.viewshop', ['detail'=>$category->detail]) }} --}}
                 <ul>
-                    <li class=""><a href="{{ route ('view', ['detail'=>$category->detail]) }}">{{ $category->name }}</a>
-                    </li>
+                    @foreach ($categorys as $category)
+                        <li class=""><a href="{{route('category', $category->id)}}">{{ $category->name }}</a></li>
+                    @endforeach
                 </ul>
-                
-                @endforeach
         </div>
     </div>
-
     <!-- ##### Single Widget ##### -->
     <div class="widget price mb-50">
         <!-- Widget Title -->
@@ -85,44 +80,44 @@ Shop
         </div>
 
         <div class="row">
-
             <!-- Single Product Area -->
-            <div class="col-12 col-sm-6 col-md-12 col-xl-6">
-                <div class="single-product-wrapper">
-                    <!-- Product Image -->
-                    <div class="product-img">
-                        <img src="{{asset('assets/img/product-img/product1.jpg')}}" alt="">
-                        <!-- Hover Thumb -->
-                        <img class="hover-img" src="{{asset('assets/img/product-img/product2.jpg')}}" alt="">
-                    </div>
-
-                    <!-- Product Description -->
-                    <div class="product-description d-flex align-items-center justify-content-between">
-                        <!-- Product Meta Data -->
-                        <div class="product-meta-data">
-                            <div class="line"></div>
-                            <p class="product-price">$180</p>
-                            <a href="product-details.html">
-                                <h6>Modern Chair</h6>
-                            </a>
+            {{-- hiển thị sản phẩm theo danh mục --}}
+            @foreach($products as $product)
+                <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+                    <div class="single-product-wrapper">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            <img src="{{asset('assets/img/product-img/product1.jpg')}}" alt="">
+                            <!-- Hover Thumb -->
+                            <img class="hover-img" src="{{asset('assets/img/product-img/product2.jpg')}}" alt="">
                         </div>
-                        <!-- Ratings & Cart -->
-                        <div class="ratings-cart text-right">
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                        <!-- Product Description -->
+                        <div class="product-description d-flex align-items-center justify-content-between">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                <p class="product-price">{{$product->price}}</p>
+                                <a href="product-details.html">
+                                    <h6>{{$product->name}}</h6>
+                                </a>
                             </div>
-                            <div class="cart">
-                                <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                            <!-- Ratings & Cart -->
+                            <div class="ratings-cart text-right">
+                                <div class="ratings">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="cart">
+                                    <a href="#" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            @endforeach
         </div>
 
         <div class="row">
