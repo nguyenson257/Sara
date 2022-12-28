@@ -37,7 +37,7 @@
             <a href="{{route('register')}}" class="btn amado-btn active">Đăng ký</a>
         @else
             <a href="#" class="btn amado-btn mb-15">Chào {{ $user->name }}</a>
-            <a href="#" class="btn amado-btn active">Đăng xuất</a>
+            <a href="{{route('logout')}}" class="btn amado-btn active">Đăng xuất</a>
         @endif
 
 

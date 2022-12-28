@@ -22,7 +22,7 @@ Route::post('/check_login', [UserController::class, 'check_login'])->name('check
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
 
-
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/home', function () {
     return view('shop.pages.home');

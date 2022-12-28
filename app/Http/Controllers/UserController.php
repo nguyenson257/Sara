@@ -47,7 +47,13 @@ class UserController extends Controller
 
         Session::put('user', $user);
 
-        return Redirect::to('/');
+        if ($user->role_id == 1) {
+            return Redirect::to('/');
+        }
+
+        if ($user->role_id == 2) {
+            return Redirect::to('/');
+        }
     }
 
     /**
@@ -118,6 +124,12 @@ class UserController extends Controller
         }
     }
 
+
+    public function logout()
+    {
+        Session::put('user', null);
+        return Redirect::to('/');
+    }
 
     /**
      * Display the specified resource.
