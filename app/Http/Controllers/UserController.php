@@ -250,6 +250,7 @@ class UserController extends Controller
 
             if($result) {
 
+                $user = User::whereIn('email', [$user_facebook->getEmail()])->first();
                 Session::put('user', $user);
                 return Redirect::to('/');
             } else {
