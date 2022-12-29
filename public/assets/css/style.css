@@ -33,4 +33,7 @@
 .form-check-input:checked{
     background-color: #fbb710 !important;
     border: 0;
- }
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+}

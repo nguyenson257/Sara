@@ -25,20 +25,30 @@
             <li class="active"><a href="{{ route('home')}}">Home</a></li>
             <li><a href="{{ route('category', 1)}}">Shop</a></li>
             <li><a href="product-details.html">Product</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="{{route('showCard')}}">Cart</a></li>
             <li><a href="checkout.html">Checkout</a></li>
         </ul>
     </nav>
     <!-- Button Group -->
     <div class="amado-btn-group mt-30 mb-100">
-        <a href="#" class="btn amado-btn mb-15">Đăng nhập</a>
-        <a href="#" class="btn amado-btn active">Đăng ký</a>
-        {{-- <a href="#" class="btn amado-btn mb-15">Chào User</a>
-        <a href="#" class="btn amado-btn active">Đăng xuất</a> --}}
+        <?php $user = Session::get('user'); ?>
+        @if (!$user)
+            <a href="{{route('login')}}" class="btn amado-btn mb-15">Đăng nhập</a>
+            <a href="{{route('register')}}" class="btn amado-btn active">Đăng ký</a>
+        @else
+            <?php
+                $str = explode(' ', $user->name);
+                $last_name = $str[count($str)-1];
+            ?>
+            <a href="{{route('profile')}}" class="btn amado-btn mb-15">Chào {{ $last_name }}</a>
+            <a href="{{route('logout')}}" class="btn amado-btn active">Đăng xuất</a>
+        @endif
+
+
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="cart.html" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""> Cart <span>(0)</span></a>
+        <a href="{{route('showCard')}}" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""> Cart <span id="cartQty">(<?php if(Session::get('cart')){echo sizeof(Session::get('cart'));}else{echo 0;} ?>)</span></a>
         <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
