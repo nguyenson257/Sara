@@ -96,7 +96,7 @@ Shop
                             <!-- Ratings & Cart -->
                             <div class="ratings-cart text-right col-2">
                                 <div class="cart">
-                                    <a href="route('productDetail',$product->id)" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                                    <a href="{{route('productDetail',$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
