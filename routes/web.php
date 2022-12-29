@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,12 @@ Route::get('/', function () {
 });
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/check_login', [UserController::class, 'check_login'])->name('check_login');
+
+//login with facebook
+Route::get('/auth/facebook', function () {
+    return Socialite::driver('facebook')->redirect();
+})->name('login_facebook');
+Route::get('/auth/facebook/callback', [\App\Http\Controllers\UserController::class, 'login_facebook']);
 
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');

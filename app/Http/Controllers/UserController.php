@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use DB;
+use Laravel\Socialite\Facades\Socialite;
 use Session;
 use App\Models\Post;
 use Hash;
@@ -220,5 +221,42 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function login_facebook()
+    {
+        $user_facebook = Socialite::driver('facebook')->user();
+
+        $user = User::whereIn('email', [$user_facebook->getEmail()])->first();
+
+        if($user) {
+            Session::put('user', $user);
+
+            if ($user->role_id == 2) {
+                return Redirect::to('/admin');
+            }
+
+            if ($user->role_id == 1) {
+                return Redirect::to('/');
+            }
+        } else {
+            $data = array();
+            $data['role_id'] = 1;
+            $data['email'] = $user_facebook->getEmail();
+            $data['password'] = bcrypt('12345678');
+            $data['name'] = $user_facebook->getName();
+
+            $result = User::create($data);
+
+            if($result) {
+
+                Session::put('user', $user);
+                return Redirect::to('/');
+            } else {
+
+                Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
+                return Redirect::to('/register');
+            }
+        }
     }
 }
