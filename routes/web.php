@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('shop.pages.home');
-});
+Route::get('/',  [CategoryController::class, 'home'])->name('home');
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/check_login', [UserController::class, 'check_login'])->name('check_login');
 
@@ -44,10 +43,9 @@ Route::get('/delete-cart', [CartController::class, 'deleteProduct'])->name('dele
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
-
+Route::get('/category/{category_id}', [CategoryController::class, 'view'])->name('category');
 Route::group(['middleware' => 'check_admin'], function() {
     Route::get('/admin', function () {
         return view('admin.pages.dashboard');
     });
 });
-
