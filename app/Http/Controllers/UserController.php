@@ -139,7 +139,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('shop/pages/profile');
     }
 
     /**
@@ -150,7 +150,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('shop/pages/edit_profile');
     }
 
     /**
@@ -160,9 +160,55 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $today = date("Y-m-d");
+        $error = '';
+        ($request->name == '') ? $error .= 'Name invalid! ' : $error .= '';
+        ($request->email == '') ? $error .= 'Email invalid! ' : $error .= '';
+        ($request->phone == '') ? $error .= 'Phone number invalid! ' : $error .= '';
+        ($request->date == '') ? $error .= 'Date of birth invalid! ' : $error .= '';
+        (strlen($request->phone) > 11 || strlen($request->phone) < 9) ? $error .= 'Phone number invalid! ' : $error .= '';
+        ($request->date > $today) ? $error .= 'Date of birth invalid! ' : $error .= '';
+
+        $arr_phone = str_split($request->phone);
+        $arr_check = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        foreach ($arr_phone as $kt)
+        {
+            if (!in_array($kt, $arr_check))
+            {
+                $error .= 'Phone number invalid! ';
+                break;
+            }
+        }
+
+        if ($error != '') {
+            Session::put('fail', $error);
+            return Redirect::to('/edit_profile');
+        }
+
+        $user = Session::get('user');
+
+        $data = array();
+        $data['role_id'] = 1;
+        $data['email'] = $request->email;
+        $data['password'] = $user->password;
+        $data['name'] = $request->name;
+        $data['date_of_birth'] = $request->date;
+        $data['phone_number'] = $request->phone;
+
+        $result = User::where('id', $user->id)->update($data);
+
+        if($result) {
+
+            $new_user = User::where('id', $user->id)->first();
+            Session::put('user', $new_user);
+            return Redirect::to('/profile');
+        } else {
+
+            Session::put('fail', '<script type="text/javascript">alert("Update fail!")</script>');
+            return Redirect::to('/edit_profile');
+        }
     }
 
     /**
