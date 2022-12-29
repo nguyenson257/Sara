@@ -13,7 +13,7 @@ Shop
         <!--  Catagories  -->
         
             <div class="catagories-menu">
-                @foreach ($categorys as $category)
+                @foreach ($categories as $category)
                 {{-- {{ route ('shop.pages.viewshop', ['detail'=>$category->detail]) }} --}}
                 <ul>
                     <li class=""><a href="{{ route ('view', ['detail'=>$category->detail]) }}">{{ $category->name }}</a>

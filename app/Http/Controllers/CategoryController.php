@@ -20,31 +20,33 @@ class CategoryController extends Controller
     }
 
     public function View($category_id){
-        $categorys = Category::all();
+        $categories = Category::all();
         $products = Product::where('category_id', $category_id)->get();
 
-        return view('shop.pages.shop',['categorys'=>$categorys, 'products'=>$products]);
+        return view('shop.pages.shop',['categories'=>$categories, 'products'=>$products]);
     }
     // function cho home
-    public function homeCat(){
-        $categorys = Category::all(); 
+    public function home(){
+        $categories = Category::all(); 
         $products = [];
 
-        foreach($categorys as $category)
+        foreach($categories as $category)
         {
             $product = Product::where('category_id', $category->id)->get()->sortBy('price')->first();
             
             if (isset($product)) {
-                $namecat = $category->name;
+                $categoryName = $category->name;
+                $image = $product->images;
                 $data = [
-                    'namecat' => $namecat,
-                    'product' => $product
+                    'categoryName' => $categoryName,
+                    'product' => $product,
+                    'image' => $image
                 ];
                 $products[] = $data;
             }   
         }     
-        //dd($product);
-       return view('shop.pages.home',['categorys'=>$categorys, 'products'=>$products]);
+        // dd($products);
+       return view('shop.pages.home',['categories'=>$categories, 'products'=>$products]);
     }
     /**
      * Show the form for creating a new resource.

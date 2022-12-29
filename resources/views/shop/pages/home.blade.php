@@ -10,12 +10,12 @@ Home
         @foreach($products as $product)
         <div class="single-products-catagory clearfix">
             <a href="{{route('category', $product['product']->category_id)}}">
-                <img src="{{asset('assets/img/bg-img/1.jpg')}}" alt="">
+                <img src="{{asset('assets/product_images/'.$product['image'][0]->name)}}" alt="">
                 <!-- Hover Content -->
                 <div class="hover-content">
                     <div class="line"></div>
-                    <p>Chỉ từ {{$product['product']->price}}</p>
-                    <h4>{{$product['namecat']}}</h4>
+                    <p>Chỉ từ {{number_format($product['product']->price, 0, '', ',')}}</p>
+                    <h4>{{$product['categoryName']}}</h4>
                 </div>
             </a>
         </div>

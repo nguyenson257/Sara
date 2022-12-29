@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('shop.pages.home');
-});
+Route::get('/',  [CategoryController::class, 'home'])->name('home');
 Route::get('/login', function () {
     return view('shop.pages.login');
 });
@@ -36,5 +35,4 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
-Route::get('/shop/{category_id}', [\App\Http\Controllers\CategoryController::class, 'view'])->name('category');
-Route::get('/', [\App\Http\Controllers\CategoryController::class, 'homecat'])->name('homecateg');
+Route::get('/shop/{category_id}', [CategoryController::class, 'view'])->name('category');
