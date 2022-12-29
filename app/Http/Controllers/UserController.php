@@ -171,6 +171,17 @@ class UserController extends Controller
         (strlen($request->phone) > 11 || strlen($request->phone) < 9) ? $error .= 'Phone number invalid! ' : $error .= '';
         ($request->date > $today) ? $error .= 'Date of birth invalid! ' : $error .= '';
 
+        $arr_phone = str_split($request->phone);
+        $arr_check = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        foreach ($arr_phone as $kt)
+        {
+            if (!in_array($kt, $arr_check))
+            {
+                $error .= 'Phone number invalid! ';
+                break;
+            }
+        }
+
         if ($error != '') {
             Session::put('fail', $error);
             return Redirect::to('/edit_profile');
