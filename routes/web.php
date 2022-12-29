@@ -42,7 +42,7 @@ Route::get('/home', function () {
 Route::get('/shop', function () {
     return view('shop.pages.shop');
 });
-Route::get('/product/{product}', [ProductController::class, 'show']);
+Route::get('/product/{product}', [ProductController::class, 'show'])->name('productDetail');
 Route::get('/cart', [CartController::class, 'show'])->name('showCard');
 Route::post('/add-to-cart', [CartController::class, 'addProduct'])->name('addCart');
 Route::post('/update-cart', [CartController::class, 'updateProduct'])->name('updateCart');
