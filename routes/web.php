@@ -47,6 +47,7 @@ Route::get('/checkout', function () {
 
 Route::group(['middleware' => 'check_admin'], function() {
     Route::get('/admin', function () {
-        return view('admin');
+        return view('admin.pages.dashboard');
     });
 });
+
