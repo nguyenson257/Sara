@@ -25,7 +25,27 @@ class CategoryController extends Controller
 
         return view('shop.pages.shop',['categorys'=>$categorys, 'products'=>$products]);
     }
+    // function cho home
+    public function homeCat(){
+        $categorys = Category::all(); 
+        $products = [];
 
+        foreach($categorys as $category)
+        {
+            $product = Product::where('category_id', $category->id)->get()->sortBy('price')->first();
+            
+            if (isset($product)) {
+                $namecat = $category->name;
+                $data = [
+                    'namecat' => $namecat,
+                    'product' => $product
+                ];
+                $products[] = $data;
+            }   
+        }     
+        //dd($product);
+       return view('shop.pages.home',['categorys'=>$categorys, 'products'=>$products]);
+    }
     /**
      * Show the form for creating a new resource.
      *

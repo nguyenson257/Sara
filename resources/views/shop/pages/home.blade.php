@@ -7,18 +7,19 @@ Home
     <div class="amado-pro-catagory clearfix">
 
         <!-- Single Catagory -->
+        @foreach($products as $product)
         <div class="single-products-catagory clearfix">
-            <a href="shop.html">
+            <a href="{{route('category', $product['product']->category_id)}}">
                 <img src="{{asset('assets/img/bg-img/1.jpg')}}" alt="">
                 <!-- Hover Content -->
                 <div class="hover-content">
                     <div class="line"></div>
-                    <p>From $180</p>
-                    <h4>Modern Chair</h4>
+                    <p>Chỉ từ {{$product['product']->price}}</p>
+                    <h4>{{$product['namecat']}}</h4>
                 </div>
             </a>
         </div>
-
+        @endforeach
     </div>
 </div>  
 @endsection

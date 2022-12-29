@@ -21,9 +21,9 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('shop.pages.register');
 });
-Route::get('/home', function () {
-    return view('shop.pages.home');
-});
+// Route::get('/home', function () {
+//     return view('shop.pages.home');
+// });
 Route::get('/shop', function () {
     return view('shop.pages.shop');
 });
@@ -37,3 +37,4 @@ Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
 Route::get('/shop/{category_id}', [\App\Http\Controllers\CategoryController::class, 'view'])->name('category');
+Route::get('/', [\App\Http\Controllers\CategoryController::class, 'homecat'])->name('homecateg');
