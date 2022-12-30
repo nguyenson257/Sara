@@ -32,7 +32,7 @@ Route::get('/google/callback', [\App\Http\Controllers\UserController::class, 'lo
 Route::get('/google', function () {
 
     return Socialite::driver('google')->redirect();
-});
+})->name('google_login');
 
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
