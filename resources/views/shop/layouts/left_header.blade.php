@@ -1,7 +1,7 @@
 <div class="mobile-nav">
     <!-- Navbar Brand -->
     <div class="amado-navbar-brand">
-        <a href="index.html"><img src="{{asset('assets/img/core-img/logo.png')}}" alt=""></a>
+        <a href="{{ route('home')}}"><img src="{{asset('assets/img/core-img/logo.png')}}" alt=""></a>
     </div>
     <!-- Navbar Toggler -->
     <div class="amado-navbar-toggler">
@@ -17,16 +17,31 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-        <a href="index.html"><img src="{{asset('assets/img/core-img/logo.png')}}" alt=""></a>
+        <a href="{{ route('home')}}"><img src="{{asset('assets/img/core-img/logo.png')}}" alt=""></a>
     </div>
     <!-- Amado Nav -->
     <nav class="amado-nav">
         <ul>
+            @if (Route::currentRouteName() == 'home')
             <li class="active"><a href="{{ route('home')}}">Home</a></li>
+            @else
+            <li><a href="{{ route('home')}}">Home</a></li>
+            @endif
+            @if (Route::currentRouteName() == 'category' || Route::currentRouteName() == 'productDetail')
+            <li class="active"><a href="{{ route('category', 1)}}">Shop</a></li>
+            @else
             <li><a href="{{ route('category', 1)}}">Shop</a></li>
-            <li><a href="product-details.html">Product</a></li>
+            @endif
+            @if (Route::currentRouteName() == 'showCard')
+            <li class="active"><a href="{{route('showCard')}}">Cart</a></li>
+            @else
             <li><a href="{{route('showCard')}}">Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
+            @endif
+            @if (Route::currentRouteName() == 'checkout')
+            <li class="active"><a href="#">Checkout</a></li>
+            @else
+            <li><a href="#">Checkout</a></li>
+            @endif
         </ul>
     </nav>
     <!-- Button Group -->

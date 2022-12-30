@@ -38,7 +38,7 @@ Cart
                             ?>
                             <tr class="cartpage">
                                 <td class="cart_product_img">
-                                    <a href="#"><img src="{{asset('assets/product_images/'.$cartProduct['product_image'])}}"></a>
+                                    <a href="{{route('productDetail',$cartProduct['product_id'])}}"><img src="{{asset('assets/product_images/'.$cartProduct['product_image'])}}"></a>
                                 </td>
                                 <td class="cart_product_desc">
                                     <h5>{{$cartProduct['product_name']}}</h5>
@@ -72,7 +72,7 @@ Cart
                         <li><span>total:</span><span  id="subTotal">{{number_format($subTotal, 0, '', ',').' VND'}}</span></li>
                     </ul>
                     <div class="cart-btn mt-100">
-                        <a href="cart.html" class="btn amado-btn w-100">Checkout</a>
+                        <a href="#" class="btn amado-btn w-100">Checkout</a>
                     </div>
                 </div>
             </div>

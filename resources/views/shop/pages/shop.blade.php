@@ -1,4 +1,5 @@
 @extends('shop.layouts.base')
+@extends('shop.layouts.script')
 @section('pageTitle')
 Shop
 @endsection
@@ -89,7 +90,7 @@ Shop
                             <div class="product-meta-data col-10">
                                 <div class="line"></div>
                                 <p class="product-price">{{number_format($product->price, 0, '', ',')}}</p>
-                                <a href="product-details.html">
+                                <a href="{{route('productDetail',$product->id)}}">
                                     <h6>{{$product->name}}</h6>
                                 </a>
                             </div>

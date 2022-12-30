@@ -1,4 +1,5 @@
 @extends('shop.layouts.base')
+@extends('shop.layouts.script')
 @section('pageTitle')
 Home
 @endsection
@@ -7,6 +8,7 @@ Home
     <div class="amado-pro-catagory clearfix">
 
         <!-- Single Catagory -->
+       
         @foreach($products as $product)
         <div class="single-products-catagory clearfix">
             <a href="{{route('category', $product['product']->category_id)}}">
@@ -20,6 +22,7 @@ Home
             </a>
         </div>
         @endforeach
+
     </div>
 </div>  
 @endsection
