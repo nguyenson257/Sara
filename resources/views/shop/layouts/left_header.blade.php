@@ -22,6 +22,7 @@
     <!-- Amado Nav -->
     <nav class="amado-nav">
         <ul>
+            <li><a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a></li>
             @if (Route::currentRouteName() == 'home')
             <li class="active"><a href="{{ route('home')}}">Home</a></li>
             @else
@@ -64,8 +65,7 @@
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
         <a href="{{route('showCard')}}" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""> Cart <span id="cartQty">(<?php if(Session::get('cart')){echo sizeof(Session::get('cart'));}else{echo 0;} ?>)</span></a>
-        <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>
-        <a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a>
+        <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>       
     </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">
