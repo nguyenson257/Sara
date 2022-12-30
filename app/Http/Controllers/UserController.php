@@ -260,4 +260,11 @@ class UserController extends Controller
             }
         }
     }
+
+    public function login_google()
+    {
+        $user = Socialite::driver('google')->user();
+        dd($user->getEmail() . ' - ' . $user->getName());
+//        dd($user);
+    }
 }
