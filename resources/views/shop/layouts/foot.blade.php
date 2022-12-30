@@ -7,12 +7,8 @@
                 <div class="single_widget_area">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="index.html"><img src="{{asset('assets/img/core-img/logo2.png')}}" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets/img/core-img/logo.png')}}" alt=""></a>
                     </div>
-                    <!-- Copywrite Text -->
-                    <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> & Re-distributed by <a href="https://themewagon.com/" target="_blank">Themewagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
             <!-- Single Widget Area -->
@@ -24,21 +20,42 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
+                                    @if (Route::currentRouteName() == 'home')
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home</a>
+                                        <a class="nav-link" href="{{ route('home')}}">Home</a>
                                     </li>
+                                    @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="shop.html">Shop</a>
+                                        <a class="nav-link" href="{{ route('home')}}">Home</a>
                                     </li>
+                                    @endif
+                                    @if (Route::currentRouteName() == 'category' || Route::currentRouteName() == 'productDetail')
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{ route('category', 1)}}">Shop</a>
+                                    </li>
+                                    @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="product-details.html">Product</a>
+                                        <a class="nav-link" href="{{ route('category', 1)}}">Shop</a>
                                     </li>
+                                    @endif
+                                    @if (Route::currentRouteName() == 'showCard')
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{route('showCard')}}">Cart</a>
+                                    </li>
+                                    @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="cart.html">Cart</a>
+                                        <a class="nav-link" href="{{route('showCard')}}">Cart</a>
                                     </li>
+                                    @endif
+                                    @if (Route::currentRouteName() == 'checkout')
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Checkout</a>
+                                    </li>
+                                    @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="checkout.html">Checkout</a>
+                                        <a class="nav-link" href="#">Checkout</a>
                                     </li>
+                                    @endif
                                 </ul>
                             </div>
                         </nav>

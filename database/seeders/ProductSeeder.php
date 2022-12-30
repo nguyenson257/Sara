@@ -1135,7 +1135,7 @@ class ProductSeeder extends Seeder
             [
                 'category_id' => 7,
                 'name' => 'Tập viết 214 bộ thủ chữ Hán chữ phồn thể giản thể',
-                'price' => '89.900',
+                'price' => '90000',
                 'description' => 'Cuốn vở gồm 214 bộ thủ chữ Hán dành cho người mới bắt đầu học tiếng Hán và người muốn ôn luyện lại hoặc muốn tập viết chữ Hán đẹp. (dành cho cả người học chữ giản thể và phồn thể). Mỗi một nét hoặc bộ thủ đều có kèm đầy đủ phiên âm, ý nghĩa, tên và thứ tự bút thuận giúp người học nhanh hiểu và dễ nhớ hơn. Ngoài còn có nội dung tóm lược về các định nghĩa như chữ tượng thanh, chữ tượng hình, chữ chỉ sự, và các quy tắc viết bút thuận. Vở ô chữ Mễ với các đường kẻ xuyên tâm giúp căn chỉnh đều nét bút.',
                 'amount' => '37',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1144,7 +1144,7 @@ class ProductSeeder extends Seeder
             [
                 'category_id' => 7,
                 'name' => 'Vở kẻ ngang 120 trang Crabit Flower, combo 6 cuốn',
-                'price' => '116.800',
+                'price' => '116000',
                 'description' => 'Ruột vở kẻ ngang, dòng vở quốc dân của mọi thế hệ. Số trang: 120 trang. Khổ vở: 183 x 260mm. Gáy dập ghim chắc chắn, đảm bảo không bị bong ra trong quá trình sử dụng. Bìa vở được thiết kế nhiều màu sắc, trẻ trung, hiện đại phù hợp với nhiều lứa tuổi học sinh, sinh viên. Thiết kế bắt mắt, giấy mịn và chống loá phù hợp để làm quà tặng cho các dịp năm học mới, làm phần thưởng cho học sinh.',
                 'amount' => '47',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1153,7 +1153,7 @@ class ProductSeeder extends Seeder
             [
                 'category_id' => 7,
                 'name' => 'Vở Tập Viết Chữ Hán, Tập Viết Tiếng Trung Mực Bay Màu Lệ Giang Chi Mộng',
-                'price' => '49.900',
+                'price' => '50000',
                 'description' => 'Chất liệu giấy: Giấy Dowling cao cấp dễ chịu cho mắt. Màu sắc giấy: Giấy màu trắng bóng mịn. Giấy thơm dịu nhẹ, dễ chịu. Chữ khắc chìm chỉ việc tô theo. Có hướng dẫn từng nét của chữ, hướng dẫn cách viết cho người mới học. Khổ vở: 14,5cm * 20.5cm. Trọng lượng: 100g.',
                 'amount' => '40',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1162,7 +1162,7 @@ class ProductSeeder extends Seeder
             [
                 'category_id' => 7,
                 'name' => 'Combo 6 vở kẻ ngang Crabit Nhũ 80 trang',
-                'price' => '90.200',
+                'price' => '90000',
                 'description' => 'Ruột vở kẻ ngang. Số trang: 80 trang. Khổ vở: 183 x 260mm. Gáy dập ghim chắc chắn, đảm bảo không bị bong ra trong quá trình sử dụng. Bìa vở được thiết kế nhiều màu sắc, trẻ trung, hiện đại phù hợp với nhiều lứa tuổi học sinh, sinh viên. Thiết kế bắt mắt, giấy mịn và chống loá phù hợp để làm quà tặng cho các dịp năm học mới, làm phần thưởng cho học sinh.',
                 'amount' => '77',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1180,7 +1180,7 @@ class ProductSeeder extends Seeder
             [
                 'category_id' => 7,
                 'name' => 'Vở kẻ ngang 120 trang Crabit Hide&Seek, Combo 6 cuốn',
-                'price' => '109.200',
+                'price' => '109000',
                 'description' => 'Ruột vở kẻ ngang. Số trang: 80 trang. Khổ vở: 183 x 260mm. Gáy dập ghim chắc chắn, đảm bảo không bị bong ra trong quá trình sử dụng. Bìa vở được thiết kế nhiều màu sắc, trẻ trung, hiện đại phù hợp với nhiều lứa tuổi học sinh, sinh viên. Thiết kế bắt mắt, giấy mịn và chống loá phù hợp để làm quà tặng cho các dịp năm học mới, làm phần thưởng cho học sinh.',
                 'amount' => '5',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

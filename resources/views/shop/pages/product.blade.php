@@ -8,19 +8,6 @@ Product Detail
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mt-50">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                        <li class="breadcrumb-item"><a href="#">Chairs</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-12 col-lg-7">
                 <div class="single_product_thumb">
                     <div id="product_details_slider" class="carousel slide" data-ride="carousel">
@@ -63,7 +50,7 @@ Product Detail
                     <div class="product-meta-data">
                         <div class="line"></div>
                         <p class="product-price">{{number_format($product->price, 0, '', ',')}}</p>
-                        <a href="product-details.html">
+                        <a href="{{route('productDetail',$product->id)}}">
                             <h6>{{$product->name}}</h6>
                         </a>
                         <!-- Ratings & Review -->
