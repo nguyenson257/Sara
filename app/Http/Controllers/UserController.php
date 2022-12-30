@@ -260,4 +260,41 @@ class UserController extends Controller
             }
         }
     }
+
+    public function login_google()
+    {
+        $user_gg = Socialite::driver('google')->user();
+        $user = User::whereIn('email', [$user_gg->getEmail()])->first();
+
+        if($user) {
+            Session::put('user', $user);
+
+            if ($user->role_id == 2) {
+                return Redirect::to('/admin');
+            }
+
+            if ($user->role_id == 1) {
+                return Redirect::to('/');
+            }
+        } else {
+            $data = array();
+            $data['role_id'] = 1;
+            $data['email'] = $user_gg->getEmail();
+            $data['password'] = bcrypt('12345678');
+            $data['name'] = $user_gg->getName();
+
+            $result = User::create($data);
+
+            if($result) {
+
+                $user = User::whereIn('email', [$user_gg->getEmail()])->first();
+                Session::put('user', $user);
+                return Redirect::to('/');
+            } else {
+
+                Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
+                return Redirect::to('/register');
+            }
+        }
+    }
 }

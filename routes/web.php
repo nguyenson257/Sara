@@ -25,7 +25,14 @@ Route::post('/check_login', [UserController::class, 'check_login'])->name('check
 Route::get('/auth/facebook', function () {
     return Socialite::driver('facebook')->redirect();
 })->name('login_facebook');
-Route::get('/auth/facebook/callback', [\App\Http\Controllers\UserController::class, 'login_facebook']);
+Route::get('/auth/facebook/callback', [UserController::class, 'login_facebook']);
+
+//login with gg
+Route::get('/google/callback', [UserController::class, 'login_google']);
+Route::get('/google', function () {
+
+    return Socialite::driver('google')->redirect();
+})->name('login_google');
 
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/create_user', [UserController::class, 'store'])->name('create_user');
