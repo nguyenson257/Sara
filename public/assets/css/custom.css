@@ -1,0 +1,46 @@
+.checkout_details_area .wrapper .form-control {
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: #f5f7fa;
+    padding: 30px;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+.checkout_details_area .wrapper textarea.form-control {
+    height: 210px;
+}
+
+.checkout_details_area .wrapper .custom-control label {
+    font-size: 14px;
+    color: #6b6b6b;
+}
+
+.custom-control .nice-select {
+    border-radius: 0;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f7fa;
+    border: none;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+.custom-control .list {
+    width: 100%;
+    border-radius: 0;
+    background-color: #f5f7fa;
+}
+
+.amado-btn a {
+    display: inline-block;
+    min-width: 160px;
+    height: 55px;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    padding: 0 7px;
+    font-size: 18px;
+    line-height: 56px;
+}

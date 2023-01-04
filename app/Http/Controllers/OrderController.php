@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+
 
 class OrderController extends Controller
 {
@@ -15,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -25,7 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,9 +38,8 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
-    }
 
+    }
     /**
      * Display the specified resource.
      *

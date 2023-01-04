@@ -17,8 +17,9 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 </head>
+
 <body>
     <!-- Search Wrapper Area Start -->
     <div class="search-wrapper section-padding-100">
@@ -31,7 +32,8 @@
                     <div class="search-content">
                         <form action="#" method="get">
                             <input type="search" name="search" id="search" placeholder="Type your keyword...">
-                            <button type="submit"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""></button>
+                            <button type="submit"><img src="{{asset('assets/img/core-img/search.png')}}"
+                                    alt=""></button>
                         </form>
                     </div>
                 </div>
@@ -39,4 +41,3 @@
         </div>
     </div>
     <div class="main-content-wrapper d-flex clearfix">
-

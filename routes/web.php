@@ -6,6 +6,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +65,10 @@ Route::group(['middleware' => 'check_admin'], function() {
         return view('admin.pages.dashboard');
     });
 });
+Route::get('/checkout', [PaymentController::class, 'create'])->name('checkout');
+Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
+
+//
+
+// Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
+Route::get('/return_vnpay', [PaymentController::class, 'return_vnpay'])->name('return_pay');
