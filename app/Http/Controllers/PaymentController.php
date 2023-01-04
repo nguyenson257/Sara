@@ -87,6 +87,7 @@ class PaymentController extends Controller
                 Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
             }
         } else {
+            $code_cart = rand(00,9999);
             $data = $request->all();        
             //dd($data);
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
@@ -94,7 +95,7 @@ class PaymentController extends Controller
             $vnp_TmnCode = "UKJR71FP";//Mã website tại VNPAY 
             $vnp_HashSecret = "SXJJELHXCQJPHONDYAOJJHEVLRULVCZK"; //Chuỗi bí mật
             
-            $vnp_TxnRef = 123456; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            $vnp_TxnRef =  $code_cart; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = 'Thanh toán online';
             $vnp_OrderType = 'billpayment';
             $vnp_Amount = $data['total'] * 100;
