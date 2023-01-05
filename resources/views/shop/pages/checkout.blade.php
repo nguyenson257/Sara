@@ -17,7 +17,9 @@ Checkout
                 <pre> -->
                 @if ( !isset($cartProducts) || empty($cartProducts))
                 <tr>
-                    <h2>Không có sản phẩm nào trong giỏ hàng</h2>
+                    <div class="col-12">
+                        <p class="cart_empty">Không có sản phẩm nào trong giỏ hàng</p>
+                    </div>
                 </tr>
                 @else
                 <div class="col-12 col-lg-8">

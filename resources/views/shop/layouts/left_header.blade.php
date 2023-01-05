@@ -67,6 +67,8 @@
             Cart <span
                 id="cartQty">(<?php if(Session::get('cart')){echo sizeof(Session::get('cart'));}else{echo 0;} ?>)</span></a>
         <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>
+        <a href="{{route('order')}}" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}"
+                alt="">Order</a>
         <a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
     <!-- Social Button -->

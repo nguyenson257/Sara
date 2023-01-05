@@ -10,7 +10,6 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use DB;
 use Session;
-use Cart;
 use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
@@ -22,7 +21,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -82,14 +81,14 @@ class PaymentController extends Controller
                     $result = OrderProduct::create($item);
                 }
                 $request->session()->forget('cart');
-                return Redirect::to('/');
+                Session::put('success_checkout','Thanh toán thành công');
+                return Redirect::to('/order');
             } else {
                 Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
             }
         } else {
             $code_cart = rand(00,9999);
             $data = $request->all();        
-            //dd($data);
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://127.0.0.1:8000/return_vnpay";
             $vnp_TmnCode = "UKJR71FP";//Mã website tại VNPAY 

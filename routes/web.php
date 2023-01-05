@@ -72,3 +72,4 @@ Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
 
 // Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
 Route::get('/return_vnpay', [PaymentController::class, 'return_vnpay'])->name('return_pay');
+Route::get('/order', [OrderController::class, 'create'])->name('order');
