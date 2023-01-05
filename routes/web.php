@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AccountManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderManagerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,4 +64,12 @@ Route::group(['middleware' => 'check_admin'], function() {
     Route::get('/admin', function () {
         return view('admin.pages.dashboard');
     });
+    Route::get('/account', [AccountManagerController::class, 'index'])->name('showAccout');
+    Route::get('/all-account',[AccountManagerController::class, 'all_user'])->name('allUser');
+    Route::get('/orderadmin',[OrderManagerController::class, 'index'])->name('orderAdmin');
+    Route::get('/all-orderadmin',[OrderManagerController::class, 'all_order'])->name('all_orderAdmin');
+    Route::post('/update-status/{user_id}',[OrderManagerController::class, 'update-status'])->name('update-status');
+    Route::get('/view_profile/{user_id}',[AccountManagerController::class, 'view_profile'])->name('view-profile');
+    Route::get('/view_order/{id_order}',[OrderManagerController::class, 'view_order'])->name('view-order');
+
 });
