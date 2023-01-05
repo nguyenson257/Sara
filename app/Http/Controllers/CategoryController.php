@@ -25,9 +25,11 @@ class CategoryController extends Controller
         $keywords = $request->keywords_submit;
         $categories = Category::all();
        // $products = Product::where('category_id', $category_id)->get();
-
+      // $products = [];
         $products = Product::where('name', 'like', '%'.$keywords.'%')->get();
-
+        
+       // dd(count($products));
+        
         return view('shop.pages.shop',['categories'=>$categories, 'products'=>$products]);
     }
     //shop
