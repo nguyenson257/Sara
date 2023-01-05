@@ -58,6 +58,8 @@ Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
 Route::get('/category/{category_id}', [CategoryController::class, 'view'])->name('category');
+// search
+Route::post('/search', [CategoryController::class, 'search'])->name('search');
 Route::group(['middleware' => 'check_admin'], function() {
     Route::get('/admin', function () {
         return view('admin.pages.dashboard');
