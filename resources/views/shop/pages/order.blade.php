@@ -50,13 +50,15 @@ Checkout
                         <div class="price">
                             {{number_format($value->price, 0, '', ',').' VND'}}
                         </div>
+                        <?php $tongtien += $value->quantity * $value->price; ?>
                     </div>
-                    <?php $tongtien += $value->quantity * $value->price; ?>
+
                     @endif
                     @endforeach
                     <div class="total">
                         <span class="border_order"></span>
                         <p>Tổng tiền: {{number_format($tongtien, 0, '', ',').' VND'}}</p>
+                        <?php $tongtien = 0; ?>
                     </div>
                 </div>
 

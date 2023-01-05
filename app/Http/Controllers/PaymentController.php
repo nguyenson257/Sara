@@ -67,7 +67,8 @@ class PaymentController extends Controller
             //print_r($data);
             // exit;
             if($result) {
-                $order_id = DB::table('orders')->select('id')->first();
+                $order_id = DB::table('orders')->select('id')->orderby('id', 'desc')->first();
+                dd($order_id);
                 $giohang = Session::get('cart');  
                 // $giohang = $giohang[0];
                 //print_r($order_id->id);
@@ -174,7 +175,7 @@ class PaymentController extends Controller
             // print_r($data);
             // exit;
             if($result) {
-                $order_id = DB::table('orders')->select('id')->first();
+                $order_id = DB::table('orders')->select('id')->orderby('id', 'desc')->first();
                 $giohang = Session::get('cart');  
                 foreach($giohang as $key => $value) {                 
                     $item = array();
