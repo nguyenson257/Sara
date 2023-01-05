@@ -20,6 +20,11 @@
         <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
       </a>
     </li>
+    <li>
+      <a href="{{route('categoryadmin')}}">
+        <i class="zmdi zmdi-invert-colors"></i> <span>Category</span>
+      </a>
+    </li>
 
   </ul>
 
