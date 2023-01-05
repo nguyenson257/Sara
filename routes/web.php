@@ -60,12 +60,9 @@ Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
 Route::get('/category/{category_id}', [CategoryController::class, 'view'])->name('category');
-
-
-
-
+// search
+Route::post('/search', [CategoryController::class, 'search'])->name('search');
 // admin 
-
 Route::group([
     'prefix'=>'/admin',
     'middleware' => 'check_admin',
