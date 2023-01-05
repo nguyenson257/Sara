@@ -185,7 +185,8 @@ class PaymentController extends Controller
                     $result = OrderProduct::create($item);
                 }
                 $request->session()->forget('cart');
-                return Redirect::to('/');
+                Session::put('success_checkout','Thanh toán thành công');
+                return Redirect::to('/order');
             } else {
                 Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
             }

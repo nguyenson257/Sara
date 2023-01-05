@@ -106,4 +106,16 @@
     margin-right: 5px;
 }
 
-.notify {}
+.cart-table-area {
+    position: relative;
+}
+
+.notify {
+    padding: 5px 10px;
+    background: #fbb710;
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}

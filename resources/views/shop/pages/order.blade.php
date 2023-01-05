@@ -3,13 +3,14 @@
 Checkout
 @endsection
 @section('content')
-<!-- <div class="notify">
-    <?php
-    $success_checkout = Session::get('success_checkout');
-    echo $success_checkout;
-    ?>
-</div> -->
+
 <div class="cart-table-area section-padding-100">
+    <div class="notify">
+        <?php
+            $success_checkout = Session::get('success_checkout');
+            echo $success_checkout;
+        ?>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
