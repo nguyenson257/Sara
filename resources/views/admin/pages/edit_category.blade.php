@@ -35,7 +35,7 @@ Category
             <input type="text" class="form-control" name="detail" value="{{$data->detail}}">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-light px-5">Edit</button>
+            <button type="submit" class="btn btn-light px-5">Save</button>
             <a class="btn btn-light px-5" href="{{route('categoryadmin')}}">Back</a>
         </div>
     </form>
