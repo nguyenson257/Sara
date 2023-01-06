@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
+use PDF;
+use App\Models\Order;
 
 class OrderManagerController extends Controller
 {
@@ -15,20 +19,45 @@ class OrderManagerController extends Controller
     {
         return view('admin/pages/order');
     }
-    public function all_order(){
-        $all_order=DB::table ('orders')->get();
-        return view('admin.pages.order',compact('all_order'));
+    public function all_order()
+    {
+        $all_order = DB::table('orders')->orderBy('created_at','desc')->get();
+        return view('admin.pages.order', compact('all_order'));
+    }
+    public function update_status(Request $request, $id)
+    {
+        $data = array();
+        $data['status'] = $request->status;
 
+
+        DB::table('orders')->where('id', $id)->update($data);
+
+        return redirect::to('all-orderadmin');
     }
-    public function update_status(Request $request,$id){
-        $order=$this->order->findOrFail($id);
-        $order->update(['status'=>$request->status]);
-        return response()->json([
-            'message'=>'success'
-        ],Response::HTTP_OK);
+
+    public function view_order($id_order)
+    {
+        $id = DB::table('orders')->where('id', $id_order)->get();
+        return view('admin.pages.vieworder', compact('id'));
     }
-    public function view_order($id_order){
-        $id=DB::table('orders')->where('id',$id_order)->get();
-        return view('admin.pages.vieworder',compact('id'));
+    public function print_order($checkout_code)
+    {
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML($this->print_order_convert($checkout_code));
+        return $pdf->stream();
+    }
+    public function print_order_convert($checkout_code)
+    {
+
+
+        return $checkout_code;
+    }
+    public function delete_order($order_id)
+    {
+        $order = DB::table('orders')->where('id', $order_id)->first();
+        $id = $order->id;
+        DB::table('order_products')->where('order_id', $id)->delete();
+        DB::table('orders')->where('id', $order_id)->delete();
+        return Redirect::to('all-orderadmin');
     }
 }
