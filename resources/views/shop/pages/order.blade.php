@@ -5,12 +5,19 @@ Checkout
 @section('content')
 
 <div class="cart-table-area section-padding-100">
+    <?php $success_checkout = Session::get('success_checkout'); ?>
+    @if($success_checkout)
     <div class="notify">
-        <?php
-            $success_checkout = Session::get('success_checkout');
-            echo $success_checkout;
-        ?>
+        <div class="d-flex">
+            <div class="flex-shrink-0">
+                <img src="{{asset('assets/img/core-img/success.png')}}" alt="...">
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <p><?php echo $success_checkout ?></p>
+            </div>
+        </div>
     </div>
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -48,7 +55,7 @@ Checkout
                             <div>x{{$value->quantity}}</div>
                         </div>
                         <div class="price">
-                            {{number_format($value->price, 0, '', ',').' VND'}}
+                            {{number_format($value->price, 0, '', ',')}}
                         </div>
                         <?php $tongtien += $value->quantity * $value->price; ?>
                     </div>

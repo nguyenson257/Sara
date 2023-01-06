@@ -125,6 +125,5 @@ Checkout
             </div>
         </form>
     </div>
-
 </div>
 @endsection

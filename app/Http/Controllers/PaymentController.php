@@ -68,7 +68,7 @@ class PaymentController extends Controller
             // exit;
             if($result) {
                 $order_id = DB::table('orders')->select('id')->orderby('id', 'desc')->first();
-                dd($order_id);
+                //dd($order_id);
                 $giohang = Session::get('cart');  
                 // $giohang = $giohang[0];
                 //print_r($order_id->id);
@@ -82,7 +82,7 @@ class PaymentController extends Controller
                     $result = OrderProduct::create($item);
                 }
                 $request->session()->forget('cart');
-                Session::put('success_checkout','Thanh toán thành công');
+                Session::put('success_checkout','Đặt hàng thành công');
                 return Redirect::to('/order');
             } else {
                 Session::put('fail', '<script type="text/javascript">alert("Error!");</script>');
