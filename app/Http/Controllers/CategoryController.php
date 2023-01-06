@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -19,6 +21,18 @@ class CategoryController extends Controller
        //
     }
 
+    public function search(Request $request){
+        $keywords = $request->keywords_submit;
+        $categories = Category::all();
+       // $products = Product::where('category_id', $category_id)->get();
+      // $products = [];
+        $products = Product::where('name', 'like', '%'.$keywords.'%')->get();
+        
+       // dd(count($products));
+        
+        return view('shop.pages.shop',['categories'=>$categories, 'products'=>$products]);
+    }
+    //shop
     public function View($category_id){
         $categories = Category::all();
         $products = Product::where('category_id', $category_id)->get();
@@ -47,7 +61,7 @@ class CategoryController extends Controller
         }     
         // dd($products);
        return view('shop.pages.home',['categories'=>$categories, 'products'=>$products]);
-    }
+    } 
     /**
      * Show the form for creating a new resource.
      *

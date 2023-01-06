@@ -17,10 +17,13 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Session::get('user');
-        if ($user->role_id == 2) {
-            return $next($request);
+        if(Session::get('user')){
+            $user = Session::get('user');
+            if ($user->role_id == 2) {
+                return $next($request);
+            }
+            return redirect('/');
         }
-        return redirect('/');
+        return redirect('/login');
     }
 }
