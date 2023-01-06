@@ -17,8 +17,9 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
+    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 </head>
+
 <body>
     <!-- Search Wrapper Area Start -->
     <div class="search-wrapper section-padding-100">
@@ -40,4 +41,3 @@
         </div>
     </div>
     <div class="main-content-wrapper d-flex clearfix">
-

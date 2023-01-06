@@ -1,10 +1,17 @@
 # Getting started
+
 ## Account for developer
+
 Default password: 12345678
-### User 
+
+### User
+
 email: user@gmail.com
-### Admin 
+
+### Admin
+
 email: admin@gmail.com
+
 ## Installation
 
 Create 'sara' database in mysql
@@ -46,7 +53,7 @@ You can now access the server at http://localhost:8000
     composer install
     cp .env.example .env
     php artisan key:generate
-    
+
 **Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
 
     php artisan migrate
@@ -63,3 +70,11 @@ Run the database seeder and you're done
 Refresh database
 
     php artisan migrate:refresh --seed
+
+### Info cart checkout
+
+Ngân hàng: NCB
+Số thẻ: 9704198526191432198
+Tên chủ thẻ: NGUYEN VAN A
+Ngày phát hành: 07/15
+Mật khẩu OTP: 123456

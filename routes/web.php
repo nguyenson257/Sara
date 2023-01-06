@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\admin\CategoriesController;
 
 /*
@@ -77,4 +79,8 @@ Route::group([
     Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])->name('categoryGetedit');
     Route::post('/category/edit/{id}', [CategoriesController::class, 'update'])->name('categoryPostedit');
 });
-
+Route::get('/checkout', [PaymentController::class, 'create'])->name('checkout');
+Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
+// Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
+Route::get('/return_vnpay', [PaymentController::class, 'return_vnpay'])->name('return_pay');
+Route::get('/order', [OrderController::class, 'create'])->name('order');
