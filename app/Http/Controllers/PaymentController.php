@@ -68,7 +68,7 @@ class PaymentController extends Controller
             // exit;
             if($result) {
                 $order_id = DB::table('orders')->select('id')->orderby('id', 'desc')->first();
-                dd($order_id);
+                // dd($order_id);   
                 $giohang = Session::get('cart');  
                 // $giohang = $giohang[0];
                 //print_r($order_id->id);

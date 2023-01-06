@@ -1,16 +1,21 @@
 @extends('shop.layouts.base')
+@extends('shop.layouts.script')
 @section('pageTitle')
 Checkout
 @endsection
 @section('content')
 
 <div class="cart-table-area section-padding-100">
+    @if (Session::get('success_checkout'))
     <div class="notify">
         <?php
             $success_checkout = Session::get('success_checkout');
             echo $success_checkout;
+            Session::put('success_checkout', null);
         ?>
     </div>
+    @endif
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -23,6 +28,8 @@ Checkout
 
                 <div class="cart_order">
                     <div class="d-flex justify-content-end">
+                        <div>{{$order->created_at}} | </div>
+
                         @if($order->status == 0)
                         <div> Đơn hàng chưa giao </div>
                         @else
@@ -39,15 +46,15 @@ Checkout
                     <span class="border_order"></span>
                     @foreach($order_products as $id => $value)
                     @if($value->order_id == $order->id)
-                    <div class="d-flex mb-4 order_content">
-                        <div class="flex-shrink-0">
+                    <div class="d-flex mb-4 order_content row">
+                        <div class="flex-shrink-0 col-2">
                             <img src="{{asset('assets/product_images/'.$images[$id])}}" alt="">
                         </div>
-                        <div class="flex-grow-1 order_name">
+                        <div class="flex-grow-1 order_name col-8">
                             {{$value->name}}
                             <div>x{{$value->quantity}}</div>
                         </div>
-                        <div class="price">
+                        <div class="price col-2 ">
                             {{number_format($value->price, 0, '', ',').' VND'}}
                         </div>
                         <?php $tongtien += $value->quantity * $value->price; ?>
