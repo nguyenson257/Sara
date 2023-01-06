@@ -4,10 +4,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\admin\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,16 +62,25 @@ Route::get('/checkout', function () {
     return view('shop.pages.checkout');
 });
 Route::get('/category/{category_id}', [CategoryController::class, 'view'])->name('category');
-Route::group(['middleware' => 'check_admin'], function() {
-    Route::get('/admin', function () {
+// search
+Route::post('/search', [CategoryController::class, 'search'])->name('search');
+// admin 
+Route::group([
+    'prefix'=>'/admin',
+    'middleware' => 'check_admin',
+    ], function() {
+    Route::get('/', function (){
         return view('admin.pages.dashboard');
     });
+    Route::get('/category', [CategoriesController::class, 'index'])->name('categoryadmin');
+    Route::get('/category/delete/{id}', [CategoriesController::class, 'destroy'])->name('categorydelete');
+    Route::get('/category/add', [CategoriesController::class, 'getadd'])->name('categoryGetadd');
+    Route::post('/category/add', [CategoriesController::class, 'postadd'])->name('categoryPostadd');
+    Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])->name('categoryGetedit');
+    Route::post('/category/edit/{id}', [CategoriesController::class, 'update'])->name('categoryPostedit');
 });
 Route::get('/checkout', [PaymentController::class, 'create'])->name('checkout');
 Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
-
-//
-
 // Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment'])->name('vnpay_payment');
 Route::get('/return_vnpay', [PaymentController::class, 'return_vnpay'])->name('return_pay');
 Route::get('/order', [OrderController::class, 'create'])->name('order');
