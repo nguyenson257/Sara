@@ -8,9 +8,7 @@
       <i class="icon-menu menu-icon"></i>
     </a>
     </li>
-
   </ul>
-
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
