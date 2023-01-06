@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
@@ -69,7 +69,7 @@ Route::get('/category/{category_id}', [CategoryController::class, 'view'])->name
 
 // search
 Route::post('/search', [CategoryController::class, 'search'])->name('search');
-// admin 
+// admin
 Route::group([
     'prefix'=>'/admin',
     'middleware' => 'check_admin',
@@ -83,7 +83,7 @@ Route::group([
     Route::post('/category/add', [CategoriesController::class, 'postadd'])->name('categoryPostadd');
     Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])->name('categoryGetedit');
     Route::post('/category/edit/{id}', [CategoriesController::class, 'update'])->name('categoryPostedit');
-    
+
     Route::get('/account', [AccountManagerController::class, 'index'])->name('showAccout');
     Route::get('/all-account', [AccountManagerController::class, 'all_user'])->name('allUser');
     Route::get('/orderadmin', [OrderManagerController::class, 'index'])->name('orderAdmin');
