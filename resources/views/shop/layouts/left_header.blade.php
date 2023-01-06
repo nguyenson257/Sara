@@ -22,6 +22,7 @@
     <!-- Amado Nav -->
     <nav class="amado-nav">
         <ul>
+            <li><a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a></li>
             @if (Route::currentRouteName() == 'home')
             <li class="active"><a href="{{ route('home')}}">Home</a></li>
             @else
@@ -31,11 +32,6 @@
             <li class="active"><a href="{{ route('category', 1)}}">Shop</a></li>
             @else
             <li><a href="{{ route('category', 1)}}">Shop</a></li>
-            @endif
-            @if (Route::currentRouteName() == 'showCard')
-            <li class="active"><a href="{{route('showCard')}}">Cart</a></li>
-            @else
-            <li><a href="{{route('showCard')}}">Cart</a></li>
             @endif
             @if (Route::currentRouteName() == 'checkout')
             <li class="active"><a href="{{route('checkout')}}">Checkout</a></li>
@@ -66,10 +62,8 @@
         <a href="{{route('showCard')}}" class="cart-nav"><img src="{{asset('assets/img/core-img/cart.png')}}" alt="">
             Cart <span
                 id="cartQty">(<?php if(Session::get('cart')){echo sizeof(Session::get('cart'));}else{echo 0;} ?>)</span></a>
-        <a href="#" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}" alt=""> Favourite</a>
         <a href="{{route('order')}}" class="fav-nav"><img src="{{asset('assets/img/core-img/favorites.png')}}"
                 alt="">Order</a>
-        <a href="#" class="search-nav"><img src="{{asset('assets/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">

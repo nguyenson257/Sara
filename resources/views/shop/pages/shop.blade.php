@@ -15,7 +15,7 @@ Shop
             <div class="catagories-menu">
                 <ul>
                     @foreach ($categories as $category)
-                    @if ($category->id == $products[0]->category_id)
+                    @if(count($products)!=0 && $category->id == $products[0]->category_id) 
                     <li class="active"><a href="{{route('category', $category->id)}}">{{ $category->name }}</a></li>
                     @else
                     <li><a href="{{route('category', $category->id)}}">{{ $category->name }}</a></li>
@@ -75,35 +75,39 @@ Shop
         <div class="row">
             <!-- Single Product Area -->
             {{-- hiển thị sản phẩm theo danh mục --}}
-            @foreach($products as $product)
-                <div class="col-12 col-sm-6 col-md-12 col-xl-6">
-                    <div class="single-product-wrapper">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{asset('assets/product_images/'.$product->images[0]->name)}}" alt="">
-                            <!-- Hover Thumb -->
-                            <img class="hover-img" src="{{asset('assets/product_images/'.$product->images[1]->name)}}" alt="">
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description d-flex align-items-center justify-content-between">
-                            <!-- Product Meta Data -->
-                            <div class="product-meta-data col-10">
-                                <div class="line"></div>
-                                <p class="product-price">{{number_format($product->price, 0, '', ',')}}</p>
-                                <a href="{{route('productDetail',$product->id)}}">
-                                    <h6>{{$product->name}}</h6>
-                                </a>
+            @if (count($products )!= 0)          
+                @foreach($products as $product)
+                    <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="{{asset('assets/product_images/'.$product->images[0]->name)}}" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="{{asset('assets/product_images/'.$product->images[1]->name)}}" alt="">
                             </div>
-                            <!-- Ratings & Cart -->
-                            <div class="ratings-cart text-right col-2">
-                                <div class="cart">
-                                    <a href="{{route('productDetail',$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                            <!-- Product Description -->
+                            <div class="product-description d-flex align-items-center justify-content-between">
+                                <!-- Product Meta Data -->
+                                <div class="product-meta-data col-10">
+                                    <div class="line"></div>
+                                    <p class="product-price">{{number_format($product->price, 0, '', ',')}}</p>
+                                    <a href="{{route('productDetail',$product->id)}}">
+                                        <h6>{{$product->name}}</h6>
+                                    </a>
+                                </div>
+                                <!-- Ratings & Cart -->
+                                <div class="ratings-cart text-right col-2">
+                                    <div class="cart">
+                                        <a href="{{route('productDetail',$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach    
+            @else
+                <p style="padding-left:5rem; font-size: 17px">Không tìm thấy kết quả.</p>              
+            @endif        
         </div>
     </div>
 </div>

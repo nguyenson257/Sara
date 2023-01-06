@@ -80,15 +80,12 @@
     object-fit: cover;
 }
 
-.order_name {
-    margin-left: 20px;
-}
-
 .order_content {
     padding: 0px 30px;
 }
 
 .price {
+    text-align: right;
     font-weight: bold;
     color: #fbb710;
 }

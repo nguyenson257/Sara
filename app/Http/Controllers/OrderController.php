@@ -33,7 +33,7 @@ class OrderController extends Controller
         if($user) {
             $id_user = $user->id;
             $order = DB::table('orders')
-            ->where('user_id', $id_user)->orderby('user_id', 'desc')->get();
+            ->where('user_id', $id_user)->orderby('created_at', 'desc')->get();
             
             $order_products = DB::table('orders')
             ->join('order_products', 'orders.id', '=', 'order_products.order_id')
