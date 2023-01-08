@@ -8,14 +8,7 @@
       <i class="icon-menu menu-icon"></i>
     </a>
     </li>
-    <li class="nav-item">
-      <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-        <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
-    </li>
   </ul>
-    
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
@@ -57,7 +50,7 @@
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <li><a class="dropdown-item" href="{{ route('logout') }}"><i class="icon-power mr-2"></i> Logout</a></li>
       </ul>
     </li>
   </ul>

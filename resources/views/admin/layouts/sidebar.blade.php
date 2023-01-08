@@ -17,18 +17,22 @@
     </li>
 
     <li>
-     
       <a href="{{route('allUser')}}">
         <i class="zmdi zmdi-invert-colors"></i> <span>Account</span>
       </a>
     </li>
+    
     <li>
-     
+      <a href="{{route('categoryadmin')}}">
+        <i class="zmdi zmdi-invert-colors"></i> <span>Category</span>
+      </a>
+    </li>
+    
+    <li>
      <a href="{{route('all_orderAdmin')}}">
        <i class="zmdi zmdi-invert-colors"></i> <span>Orders</span>
      </a>
-   </li>
-  </ul>
+    </li>
 
 </div>
 <!--End sidebar-wrapper-->

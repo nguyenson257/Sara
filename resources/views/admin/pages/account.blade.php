@@ -4,9 +4,6 @@ Dashboard
 @endsection
 @section('content')
 <!--Start Dashboard Content-->
-<table class="table table-bordered">
-  <thead>
-    <tr>
 <form class="search-bar" action="{{route('searchname')}}" method="post">
   {{csrf_field()}}
   <input type="search" name="ten" id="keywords" class="form-control" placeholder="Enter keywords" value="">
@@ -20,7 +17,6 @@ Dashboard
   <thead>
     <tr>
       <th scope="col">Role</th>
->>>>>>> Stashed changes
       <th scope="col">Email</th>
       <th scope="col">Name</th>
       <th scope="col">Date of birth</th>
@@ -29,10 +25,10 @@ Dashboard
     </tr>
   </thead>
 
-  <tbody>
-  @foreach ($all_user as $key => $all_user)
+  <tbody id="list">
+    @foreach ($all_user as $key => $all_user)
     <tr>
-      <td>{{$all_user-> role_id}}</td>
+    <td>{{$all_user-> role_id}}</td>
       <td>{{$all_user-> email}}</td>
       <td>{{$all_user-> name}}</td>
       <td>{{$all_user-> date_of_birth}}</td>
