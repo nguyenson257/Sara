@@ -30,7 +30,7 @@ class OrderManagerController extends Controller
         $data = array();
         $data['status'] = $request->status;
         DB::table('orders')->where('id', $id)->update($data);
-        return redirect::to('all-orderadmin');
+        return Redirect::to(route('all_orderAdmin'));
     }
 
     public function view_order($id_order)
@@ -59,6 +59,6 @@ class OrderManagerController extends Controller
         $id = $order->id;
         DB::table('order_products')->where('order_id', $id)->delete();
         DB::table('orders')->where('id', $order_id)->delete();
-        return Redirect::to('all-orderadmin');
+        return Redirect::to(route('all_orderAdmin'));
     }
 }
