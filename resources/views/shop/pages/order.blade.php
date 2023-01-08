@@ -6,16 +6,21 @@ Checkout
 @section('content')
 
 <div class="cart-table-area section-padding-100">
-    @if (Session::get('success_checkout'))
+    <?php $success_checkout = Session::get('success_checkout'); ?>
+    @if($success_checkout)
     <div class="notify">
-        <?php
-            $success_checkout = Session::get('success_checkout');
-            echo $success_checkout;
-            Session::put('success_checkout', null);
-        ?>
+        <div class="d-flex">
+            <div class="flex-shrink-0">
+                <img src="{{asset('assets/img/core-img/success.png')}}" alt="...">
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <p><?php echo $success_checkout ;  
+                Session::put('success_checkout', null);?></p>
+
+            </div>
+        </div>
     </div>
     @endif
-    
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -25,7 +30,6 @@ Checkout
                 <?php $tongtien = 0; ?>
 
                 @foreach($order as $key => $order)
-
                 <div class="cart_order">
                     <div class="d-flex justify-content-end">
                         <div>{{$order->created_at}} | </div>
@@ -45,17 +49,20 @@ Checkout
                     </div>
                     <span class="border_order"></span>
                     @foreach($order_products as $id => $value)
+
                     @if($value->order_id == $order->id)
+
                     <div class="d-flex mb-4 order_content row">
-                        <div class="flex-shrink-0 col-2">
-                            <img src="{{asset('assets/product_images/'.$images[$id])}}" alt="">
+                        <div class="flex-shrink-0 col-3">
+                            <a href="{{route('productDetail',$value->product_id)}}"><img
+                                    src="{{asset('assets/product_images/'.$images[$id])}}" alt=""></a>
                         </div>
-                        <div class="flex-grow-1 order_name col-8">
+                        <div class="flex-grow-1 col-7">
                             {{$value->name}}
                             <div>x{{$value->quantity}}</div>
                         </div>
                         <div class="price col-2 ">
-                            {{number_format($value->price, 0, '', ',').' VND'}}
+                            {{number_format($value->price, 0, '', ',')}}
                         </div>
                         <?php $tongtien += $value->quantity * $value->price; ?>
                     </div>
@@ -68,7 +75,6 @@ Checkout
                         <?php $tongtien = 0; ?>
                     </div>
                 </div>
-
                 @endforeach
             </div>
         </div>

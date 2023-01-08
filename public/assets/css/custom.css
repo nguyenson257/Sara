@@ -80,14 +80,18 @@
     object-fit: cover;
 }
 
+.order_name {
+    margin-left: 20px;
+}
+
 .order_content {
     padding: 0px 30px;
 }
 
 .price {
-    text-align: right;
     font-weight: bold;
     color: #fbb710;
+    text-align: right;
 }
 
 .total p {
@@ -108,11 +112,44 @@
 }
 
 .notify {
-    padding: 5px 10px;
-    background: #fbb710;
-    color: white;
+    width: 300px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
     position: absolute;
-    top: 0;
-    width: 100%;
+    padding: 25px 10px;
+    background: #00d400;
+    color: white;
     text-align: center;
+    top: -200px;
+    right: 0;
+}
+
+.notify p {
+    color: white;
+    font-size: 18px;
+    margin: 0px;
+}
+
+.notify img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+@keyframes example {
+    0% {
+        top: -200px;
+        right: 0;
+    }
+    50% {
+        right: 0px;
+        top: 0px;
+    }
+    100% {
+        top: -200px;
+        right: 0;
+    }
 }
