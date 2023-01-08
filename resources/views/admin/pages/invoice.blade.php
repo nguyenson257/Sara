@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Food</title>
+    <title>Sara</title>
     <link rel="icon" type="png" href="{{asset('frontend/assets/img/favicon.png')}}">
     <style>
         h1,h2,h3,h4,h5,h6,p {
@@ -55,7 +55,6 @@
 </head>
 <body>
     <div class="header">
-        <img src="{{URL::to('img/logo-black.png')}}"  width="280px"  alt="Image">
         <div class="right">
             <h4>Địa chỉ: 48 Cao Thắng, phường Thanh Bình,<br/> quận Hải Châu, thành phố Đà Nẵng.</h4>
             <h4>SĐT: 0987456123</h4>

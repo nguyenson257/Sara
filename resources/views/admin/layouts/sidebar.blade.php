@@ -33,7 +33,6 @@
        <i class="zmdi zmdi-invert-colors"></i> <span>Orders</span>
      </a>
     </li>
-  </ul>
 
 </div>
 <!--End sidebar-wrapper-->

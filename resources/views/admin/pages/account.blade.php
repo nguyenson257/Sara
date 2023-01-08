@@ -4,9 +4,9 @@ Dashboard
 @endsection
 @section('content')
 <!--Start Dashboard Content-->
-<form class="search-bar" action="{{route('searchname')}}">
+<form class="search-bar" action="{{route('searchname')}}" method="post">
   {{csrf_field()}}
-  <input type="search" name="search" id="keywords" class="form-control" placeholder="Enter keywords" value="">
+  <input type="search" name="ten" id="keywords" class="form-control" placeholder="Enter keywords" value="">
   <div id="search-ajax"></div>
   <a href="javascript:void();"><i class="icon-magnifier"></i></a>
   <br>
@@ -16,7 +16,7 @@ Dashboard
 <table class="table table-bordered">
   <thead>
     <tr>
-    <th scope="col">Role</th>
+      <th scope="col">Role</th>
       <th scope="col">Email</th>
       <th scope="col">Name</th>
       <th scope="col">Date of birth</th>
@@ -34,41 +34,32 @@ Dashboard
       <td>{{$all_user-> date_of_birth}}</td>
       <td>{{$all_user-> phone_number}}</td>
       <td>
-        <a href="{{URL::to('/view_profile/'.$all_user->id)}}" class="active styling-edit" ui-toggle-class="">
-          <p>View</p></i>
-        </a>
+      <a href="{{URL::to('/view_profile/'.$all_user->id)}}" class="active styling-edit" ui-toggle-class=""><p>View</p></i>
+      </a>
       </td>
     </tr>
-    @endforeach
+   @endforeach
   </tbody>
 </table>
-<!--End Row-->
-<!-- <script type="text/javascript">
-  $('#keyword').keyup(function() {
-    var query = $(this).val();
-    if (query != '') {
-      var _token = $('input[name=_token]').val();
+<script>
+  $(document).ready(function() {
+    $(document).on('keyup', '#ten', function() {
+      var keyword = $(this).val();
       $.ajax({
-        url: "([url('/search')])",
-        method: "POST",
+        type: "get",
+        url: "/search",
         data: {
-          query: query,
-          _token: _token
+          keyword: keyword
         },
-        success: function(data) {
-          $('search-ajax').fadeIn();
-          $('search-ajax').html(data);
+        dataType: "json",
+        success: function(response) {
+          $('#list').html(response);
         }
-      });
-    } else {
-      $('search-ajax').fadeOut();
-    }
+      })
+    })
   });
-  $(document).on('click', 'li', function() {
-    $('#keyword').val($(this).text());
-    $('search-ajax').fadeOut();
-  });
-</script> -->
+</script>
+<!--End Row-->
 
 <!--End Dashboard Content-->
 @endsection

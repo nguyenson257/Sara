@@ -7,8 +7,7 @@ Dashboard
 
 @foreach ($id as $key => $iduser)
 
-
-<form method="post"  action="{{URL::to('/update-status/'.$iduser->id)}}}">
+<form method="post"  action="{{route('update-status',$iduser->id)}}">
 
     {{csrf_field()}}
     <div class="form-group">
