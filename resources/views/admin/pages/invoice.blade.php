@@ -55,7 +55,6 @@
 </head>
 <body>
     <div class="header">
-        <img src="{{URL::to('img/logo-black.png')}}"  width="280px"  alt="Image">
         <div class="right">
             <h4>Địa chỉ: 48 Cao Thắng, phường Thanh Bình,<br/> quận Hải Châu, thành phố Đà Nẵng.</h4>
             <h4>SĐT: 0987456123</h4>
