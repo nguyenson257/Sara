@@ -31,5 +31,12 @@ class AccountManagerController extends Controller
     public function view_profile($user_id){
         $id=DB::table('users')->where('id',$user_id)->get();
         return view('admin.pages.viewuser',compact('id'));
+
+    }
+    public function search(Request $request)
+    {
+        $all_user= DB::Table('users')->where('name','LIKE','%'.$request->ten.'%')->get();
+           
+            return view('admin.pages.account', compact('all_user'));
     }
 }
