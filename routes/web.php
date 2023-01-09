@@ -12,6 +12,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,9 +74,7 @@ Route::group([
     'prefix'=>'/admin',
     'middleware' => 'check_admin',
     ], function() {
-    Route::get('/', function (){
-        return view('admin.pages.dashboard');
-    });
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/category', [CategoriesController::class, 'index'])->name('categoryadmin');
     Route::get('/category/delete/{id}', [CategoriesController::class, 'destroy'])->name('categorydelete');
     Route::get('/category/add', [CategoriesController::class, 'getadd'])->name('categoryGetadd');
