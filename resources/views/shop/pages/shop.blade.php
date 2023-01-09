@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-Shop
+Sản phẩm
 @endsection
 @section('content')
 <div class="shop_sidebar_area">
@@ -24,22 +24,6 @@ Shop
                 </ul>
         </div>
     </div>
-    <!-- ##### Single Widget ##### -->
-    <div class="widget price mb-50">
-        <!-- Widget Title -->
-        <h6 class="widget-title mb-30">Price</h6>
-
-        <div class="widget-desc">
-            <div class="slider-range">
-                <div data-min="10" data-max="1000" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1000" data-label-result="">
-                    <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                    <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                </div>
-                <div class="range-price">$10 - $1000</div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="amado_product_area section-padding-100">
@@ -53,19 +37,6 @@ Shop
                         <div class="view d-flex">
                             <a href="#"><i class="fa fa-th-large" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                    <!-- Sorting -->
-                    <div class="product-sorting d-flex">
-                        <div class="sort-by-date d-flex align-items-center mr-15">
-                            <p>Sort by</p>
-                            <form action="#" method="get">
-                                <select name="select" id="sortBydate">
-                                    <option value="value">Date</option>
-                                    <option value="value">Newest</option>
-                                    <option value="value">Popular</option>
-                                </select>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -98,7 +69,7 @@ Shop
                                 <!-- Ratings & Cart -->
                                 <div class="ratings-cart text-right col-2">
                                     <div class="cart">
-                                        <a href="{{route('productDetail',$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
+                                        <a href="{{route('productDetail',$product->id)}}" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><img src="{{asset('assets/img/core-img/cart.png')}}" alt=""></a>
                                     </div>
                                 </div>
                             </div>

@@ -22,38 +22,38 @@
                                 <ul class="navbar-nav ml-auto">
                                     @if (Route::currentRouteName() == 'home')
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{ route('home')}}">Home</a>
+                                        <a class="nav-link" href="{{ route('home')}}">Trang chủ</a>
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('home')}}">Home</a>
+                                        <a class="nav-link" href="{{ route('home')}}">Trang chủ</a>
                                     </li>
                                     @endif
                                     @if (Route::currentRouteName() == 'category' || Route::currentRouteName() == 'productDetail')
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{ route('category', 1)}}">Shop</a>
+                                        <a class="nav-link" href="{{ route('category', 1)}}">Sản phẩm</a>
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('category', 1)}}">Shop</a>
+                                        <a class="nav-link" href="{{ route('category', 1)}}">Sản phẩm</a>
                                     </li>
                                     @endif
                                     @if (Route::currentRouteName() == 'showCard')
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{route('showCard')}}">Cart</a>
+                                        <a class="nav-link" href="{{route('showCard')}}">Giỏ hàng</a>
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('showCard')}}">Cart</a>
+                                        <a class="nav-link" href="{{route('showCard')}}">Giỏ hàng</a>
                                     </li>
                                     @endif
                                     @if (Route::currentRouteName() == 'checkout')
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="#">Checkout</a>
+                                        <a class="nav-link" href="#">Thanh toán</a>
                                     </li>
                                     @else
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Checkout</a>
+                                        <a class="nav-link" href="#">Thanh toán</a>
                                     </li>
                                     @endif
                                 </ul>
