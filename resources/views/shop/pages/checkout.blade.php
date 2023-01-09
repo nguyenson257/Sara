@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-Checkout
+Thanh toán
 @endsection
 @section('content')
 <div class="cart-table-area section-padding-100">
