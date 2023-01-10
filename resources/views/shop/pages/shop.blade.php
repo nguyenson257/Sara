@@ -9,16 +9,16 @@ Sản phẩm
     <!-- ##### Single Widget ##### -->
     <div class="widget catagory mb-50">
         <!-- Widget Title -->
-        <h6 class="widget-title mb-30">Danh mục sản phẩm</h6>
+        <h6 class="widget-title mb-30 bold-text">Danh mục sản phẩm</h6>
         <!--  Catagories  -->
         {{-- hiển thị danh mục sản phẩm --}}
             <div class="catagories-menu">
                 <ul>
                     @foreach ($categories as $category)
                     @if(count($products)!=0 && $category->id == $products[0]->category_id) 
-                    <li class="active"><a href="{{route('category', $category->id)}}">{{ $category->name }}</a></li>
+                    <li class="active"><a href="{{route('category', $category->id)}}" style="font-weight: bold">{{ $category->name }}</a></li>
                     @else
-                    <li><a href="{{route('category', $category->id)}}">{{ $category->name }}</a></li>
+                    <li><a href="{{route('category', $category->id)}}"style="font-weight: bold">{{ $category->name }}</a></li>
                     @endif
                     @endforeach
                 </ul>

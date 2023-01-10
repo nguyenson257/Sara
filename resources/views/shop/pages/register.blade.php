@@ -39,16 +39,15 @@
                                     }
 
                                     ?>
-
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
 
                                     <form class="mx-1 mx-md-4" action="{{route('create_user')}}" method="post">
                                         @csrf
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <i class="fas fa-user fa-lg me-3 fa-fw" style="align-self: end; padding-bottom: 13px;"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example1c" class="form-control" name="name" />
                                                 <label class="form-label" for="form3Example1c">Họ và tên</label>
+                                                <input type="text" id="form3Example1c" class="form-control" name="name" />
                                                 @error('name')
                                                 <p style="color: red;">{{$message}}</p>
                                                 @enderror
@@ -57,10 +56,10 @@
 
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw" style="align-self: end; padding-bottom: 13px;"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="email" id="form3Example3c" class="form-control" name="email" />
                                                 <label class="form-label" for="form3Example3c">Email</label>
+                                                <input type="email" id="form3Example3c" class="form-control" name="email" />
                                                 @error('email')
                                                 <p style="color: red;">{{$message}}</p>
                                                 @enderror
@@ -75,10 +74,10 @@
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw" style="align-self: end; padding-bottom: 13px;"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4c" class="form-control" name="password" />
                                                 <label class="form-label" for="form3Example4c">Mật khẩu</label>
+                                                <input type="password" id="form3Example4c" class="form-control" name="password" />
                                                 @error('password')
                                                 <p style="color: red;">{{$message}}</p>
                                                 @enderror
@@ -93,10 +92,10 @@
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <i class="fas fa-key fa-lg me-3 fa-fw" style="align-self: end; padding-bottom: 13px;"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4cd" class="form-control" name="confirm_password" />
                                                 <label class="form-label" for="form3Example4cd">Nhập lại mật khẩu</label>
+                                                <input type="password" id="form3Example4cd" class="form-control" name="confirm_password" />
                                                 @error('confirm_password')
                                                 <p style="color: red;">{{$message}}</p>
                                                 @enderror
