@@ -30,7 +30,7 @@
                     <div class="card text-black" style="border-radius: 25px;">
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
-                                <div class="col-md-9 col-lg-6 col-xl-5">
+                                <div class="col-md-9 col-lg-6 col-xl-5" style="display: flex; align-items: center;">
                                     <img src="{{ asset('assets/img/bg-img/img_login.png') }}"
                                         class="img-fluid" alt="Sample image">
                                 </div>
@@ -63,17 +63,17 @@
 
                                         <!-- Email input -->
                                         <div class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example3">Email</label>
                                             <input type="email" id="form3Example3" name="email"
                                                 class="form-control form-control-lg"
                                                 placeholder="Nhập địa chỉ Email" />
-                                            <label class="form-label" for="form3Example3">Email</label>
                                         </div>
 
                                         <!-- Password input -->
                                         <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example4">Mật khẩu</label>
                                             <input type="password" id="form3Example4" name="password"
                                                 class="form-control form-control-lg" placeholder="Nhập mật khẩu" />
-                                            <label class="form-label" for="form3Example4">Mật khẩu</label>
                                         </div>
 
                                         <div class="text-center text-lg-start mt-4 pt-2">

@@ -35,5 +35,8 @@
     border: 0;
 }
 body{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Calibri, Tahoma;
+}
+.bold-text{
+    font-weight: bold;
 }
