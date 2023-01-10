@@ -8,8 +8,9 @@ Dashboard
         <tr>
             <th scope="col">User Id</th>
             <th scope="col">Address</th>
+            <th scope="col">Payment Status </th>
             <th scope="col">Status </th>
-            <th scope="col">Create at </th>
+            <th scope="col">Create At </th>
             <th scope="col">Action </th>
         </tr>
     </thead>
@@ -18,6 +19,20 @@ Dashboard
         <tr>
             <td>{{$all_order -> user_id}}</td>
             <td>{{$all_order -> address}}</td>
+            <td><span class="text-ellipsis">
+              <?php
+              if($all_order -> payment_status ==1){
+              ?>
+              <p>Cash</p>
+              <?php 
+              }else{ 
+              
+              ?><p>Creadit card</p>
+              <?php
+              }
+              ?>
+              
+            </span></td>
             <td><span class="text-ellipsis">
               <?php
               if($all_order -> status ==1){
