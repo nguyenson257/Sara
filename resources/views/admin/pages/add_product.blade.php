@@ -4,7 +4,6 @@
 @endsection
 @section('content')
     <!--Start Dashboard Content-->
-
     <div class="card mt-3 p-3">
             <form method="post" enctype="multipart/form-data">
                 @csrf
