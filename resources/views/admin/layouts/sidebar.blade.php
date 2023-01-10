@@ -27,6 +27,12 @@
         <i class="zmdi zmdi-invert-colors"></i> <span>Category</span>
       </a>
     </li>
+
+    <li>
+      <a href="{{route('productadmin')}}">
+        <i class="zmdi zmdi-invert-colors"></i> <span>Product</span>
+      </a>
+    </li>
     
     <li>
      <a href="{{route('all_orderAdmin')}}">

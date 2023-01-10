@@ -12,6 +12,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,13 @@ Route::group([
     Route::post('/category/add', [CategoriesController::class, 'postadd'])->name('categoryPostadd');
     Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])->name('categoryGetedit');
     Route::post('/category/edit/{id}', [CategoriesController::class, 'update'])->name('categoryPostedit');
+
+    Route::get('/product', [AdminProductController::class, 'index'])->name('productadmin');
+    Route::get('/product/delete/{id}', [AdminProductController::class, 'destroy'])->name('productdelete');
+    Route::get('/product/add', [AdminProductController::class, 'getadd'])->name('productGetadd');
+    Route::post('/product/add', [AdminProductController::class, 'postadd'])->name('productPostadd');
+    Route::get('/product/edit/{id}', [AdminProductController::class, 'edit'])->name('productGetedit');
+    Route::post('/product/edit/{id}', [AdminProductController::class, 'update'])->name('productPostedit');
 
     Route::get('/account', [AccountManagerController::class, 'index'])->name('showAccout');
     Route::get('/all-account', [AccountManagerController::class, 'all_user'])->name('allUser');
