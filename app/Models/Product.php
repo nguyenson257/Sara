@@ -11,12 +11,13 @@ class Product extends Model
     use HasFactory;
     use SoftDeletes;
     protected $date=['deleted_at'];
+    protected $fillable=['name', 'category_id', 'price', 'description', 'amount'];
 
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
     }
-    
+
     public function orders()
     {
         return $this->belongsToMany('App\Models\Order');

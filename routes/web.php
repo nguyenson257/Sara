@@ -85,6 +85,7 @@ Route::group([
 
     Route::get('/product', [AdminProductController::class, 'index'])->name('productadmin');
     Route::get('/product/delete/{id}', [AdminProductController::class, 'destroy'])->name('productdelete');
+    Route::get('/product/delete/image/{id}', [AdminProductController::class, 'deleteProductImage'])->name('productImageDelete');
     Route::get('/product/add', [AdminProductController::class, 'getadd'])->name('productGetadd');
     Route::post('/product/add', [AdminProductController::class, 'postadd'])->name('productPostadd');
     Route::get('/product/edit/{id}', [AdminProductController::class, 'edit'])->name('productGetedit');
