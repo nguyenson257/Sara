@@ -36,7 +36,7 @@ Dashboard
               <?php 
               }else{ 
               
-              ?><p>admin</p>
+              ?><p>Admin</p>
               <?php
               }
               ?>
