@@ -7,9 +7,10 @@ Dashboard
     <thead>
         <tr>
             <th scope="col">User Id</th>
-            <th scope="col">Address</th>
-            <th scope="col">Payment Status </th>
+            <th scope="col" style="max-width: 450px;">Address</th>
+            <th scope="col">Payment</th>
             <th scope="col">Status </th>
+            <th scope="col">Create At </th>
             <th scope="col">Action </th>
         </tr>
     </thead>
@@ -17,9 +18,35 @@ Dashboard
         @foreach($all_order as $all_order)
         <tr>
             <td>{{$all_order -> user_id}}</td>
-            <td>{{$all_order -> address}}</td>
-            <td>{{$all_order -> payment_status}}</td>
-            <td>{{$all_order -> status}}</td>
+            <td  style="max-width: 450px;">{{$all_order -> address}}</td>
+            <td><span class="text-ellipsis">
+              <?php
+              if($all_order -> payment_id == 1){
+              ?>
+              <p>Cash</p>
+              <?php 
+              }else{ 
+              
+              ?><p>Creadit card</p>
+              <?php
+              }
+              ?>
+              
+            </span></td>
+            <td><span class="text-ellipsis">
+              <?php
+              if($all_order -> status ==1){
+              ?>
+              <p>Đã giao hàng</p>
+              <?php 
+              }else{ 
+              
+              ?><p>Chưa giao hàng</p>
+              <?php
+              }
+              ?>
+
+            </span></td>
             <td>{{$all_order -> created_at}}</td>
             <td>
                <a href="{{ route('view-order', $all_order->id) }}" class="active styling-edit" ui-toggle-class=""><p>View</p></i>

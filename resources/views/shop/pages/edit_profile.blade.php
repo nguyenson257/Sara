@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-    Edit Profile
+    Chỉnh sửa thông tin
 @endsection
 @section('content')
     <div class="products-catagories-area clearfix">
@@ -11,7 +11,7 @@
     background-color: #F6F5F5;
     padding: 70px;
 ">
-                <h2>Profile</h2>
+                <h2>Thông tin tài khoản</h2>
                 <br>
 
                 <div class="card">
@@ -30,23 +30,23 @@
                         <form action="{{route('edit_profile')}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Full name</label>
+                                <label for="name">Họ và tên</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email address</label>
+                                <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
                             </div>
                             <div class="form-group">
-                                <label for="date">Date of bird</label>
+                                <label for="date">Ngày sinh</label>
                                 <input type="date" class="form-control" id="date" name="date" value="{{ $user->date_of_birth }}" >
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone number</label>
+                                <label for="phone">Số điện thoại</label>
                                 <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone_number }}" >
                             </div>
                             <br>
-                            <button type="submit" id="btn-edit" class="btn btn-primary">Save</button>
+                            <button type="submit" id="btn-edit" class="btn btn-primary">Lưu</button>
                         </form>
 
                     </div>

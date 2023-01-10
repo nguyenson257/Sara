@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-Checkout
+Đơn hàng
 @endsection
 @section('content')
 

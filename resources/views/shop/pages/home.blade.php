@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-Home
+Trang chủ
 @endsection
 @section('content')
 <div class="products-catagories-area clearfix">

@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-Product Detail
+Chi tiết sản phẩm
 @endsection
 @section('content')
 <div class="single-product-area section-padding-100 clearfix">
@@ -62,14 +62,11 @@ Product Detail
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                             </div>
-                            <div class="review">
-                                <a href="#">Write A Review</a>
-                            </div>
                         </div>
                         @if ($product->amount == 0)
-                        <p class="avaibility"><i class="fa fa-circle" style="color: red"></i> Out of Stock({{$product->amount}})</p>
+                        <p class="avaibility"><i class="fa fa-circle" style="color: red"></i> Hết hàng({{$product->amount}})</p>
                         @else
-                        <p class="avaibility"><i class="fa fa-circle"></i> In Stock({{$product->amount}})</p>
+                        <p class="avaibility"><i class="fa fa-circle"></i> Trong kho({{$product->amount}})</p>
                         @endif
                     </div>
 
@@ -85,7 +82,7 @@ Product Detail
                         <input type="hidden" name="image" value="{{$product->images[0]->name}}">
                         <input type="hidden" name="price" value="{{$product->price}}">
                         <div class="cart-btn d-flex mb-50">
-                            <p>Qty</p>
+                            <p>Số lượng</p>
                             <div class="quantity">
                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                 <input type="number" class="qty-text" id="qty" disabled step="1" min="1" max="300" name="quantity" value="1">
@@ -93,9 +90,9 @@ Product Detail
                             </div>
                         </div>
                         @if ($product->amount == 0)
-                        <button type="submit" name="addtocart" class="btn amado-btn" disabled>Add to cart</button>
+                        <button type="submit" name="addtocart" class="btn amado-btn" disabled>Thêm vào giỏ hàng</button>
                         @else
-                        <button type="button" name="addtocart" class="btn amado-btn btn-submit">Add to cart</button>
+                        <button type="button" name="addtocart" class="btn amado-btn btn-submit">Thêm vào giỏ hàng</button>
                         @endif
                     </form>
 

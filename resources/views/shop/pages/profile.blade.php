@@ -1,7 +1,7 @@
 @extends('shop.layouts.base')
 @extends('shop.layouts.script')
 @section('pageTitle')
-   Profile
+   Thông tin tài khoản
 @endsection
 @section('content')
     <div class="products-catagories-area clearfix">
@@ -26,7 +26,7 @@
 
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Full Name</p>
+                                <p class="mb-0">Họ và tên</p>
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0">{{ $user->name }}</p>
@@ -44,7 +44,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Phone number</p>
+                                <p class="mb-0">Số điện thoại</p>
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0">{{ $user->phone_number }}</p>
@@ -53,7 +53,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Date of birth</p>
+                                <p class="mb-0">Ngày sinh</p>
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0">{{ $user->date_of_birth }}</p>
@@ -61,7 +61,7 @@
                         </div>
                         <hr>
 
-                        <a href="{{route('edit_profile')}}" class="btn btn-primary">Update</a>
+                        <a href="{{route('edit_profile')}}" class="btn btn-primary">Cập nhật</a>
 
                     </div>
                 </div>

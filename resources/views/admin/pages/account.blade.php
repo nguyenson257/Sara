@@ -28,7 +28,20 @@ Dashboard
   <tbody id="list">
     @foreach ($all_user as $key => $all_user)
     <tr>
-    <td>{{$all_user-> role_id}}</td>
+    <td><span class="text-ellipsis">
+              <?php
+              if($all_user -> role_id ==1){
+              ?>
+              <p>User</p>
+              <?php 
+              }else{ 
+              
+              ?><p>Admin</p>
+              <?php
+              }
+              ?>
+              
+            </span></td>
       <td>{{$all_user-> email}}</td>
       <td>{{$all_user-> name}}</td>
       <td>{{$all_user-> date_of_birth}}</td>

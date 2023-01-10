@@ -20,7 +20,6 @@ class AdminProductController extends Controller
     {
         $data = Product::paginate(10);
         return view('admin/pages/product', compact('data'));
-
     }
 
     /**
