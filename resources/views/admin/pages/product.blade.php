@@ -39,7 +39,7 @@
                                    ">{{$value->description}}</td>
                         <td>{{$value->amount}}</td>
                         <td>
-                            <a href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                            <a href="{{route('productGetedit', ['id'=>$value->id])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                             &nbsp
                             <a href="{{route('productdelete',['id'=>$value->id])}}"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
                         </td>
@@ -47,8 +47,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                <br>    
-                <a href="" class="btn btn-light px-5"><i class="fa fa-plus-square" aria-hidden="true"></i> ADD</a>
+                <br>
+                <a href="{{route('productGetadd')}}" class="btn btn-light px-5"><i class="fa fa-plus-square" aria-hidden="true"></i> ADD</a>
                 <br><br>
                 {{$data->links('pagination::bootstrap-4')}}
             </div>
